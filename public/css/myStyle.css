@@ -10,7 +10,7 @@
     width: auto;
     height: 1000px;
     filter: alpha(opacity:60);
-    opacity: 0.6;
+    opacity: 1;
     -moz-opacity: 0.6;
 }
 
@@ -39,4 +39,14 @@
 .navbar-text {
     margin-top: 0px;
     margin-bottom: 15px;
+}
+
+#myCarousel{
+    width: 900px;
+    height: 400px;
+    margin: 50px auto;
+}
+.carousel-caption{
+    font-size: 200%;
+    color: lightpink;
 }
