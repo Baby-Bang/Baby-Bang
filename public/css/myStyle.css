@@ -44,7 +44,7 @@
 #myCarousel{
     width: 900px;
     height: 400px;
-    margin: 0px auto;
+    margin: 50px auto;
 }
 .carousel-caption{
     font-size: 200%;

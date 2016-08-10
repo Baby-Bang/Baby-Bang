@@ -1,0 +1,30 @@
+
+div.panel
+{
+    margin:0px;
+    width:150px;
+    padding:30px;
+    text-align:center;
+    line-height:200%;
+    background-color: antiquewhite;
+    font-size: large;
+    font-family:Impact, Charcoal, sans-serif;
+     border:solid 1px #c3c3c3;
+}
+
+p#flip{
+    margin:0px;
+    padding:5px;
+    text-align:center;
+    padding-top: 50px;
+}
+
+div.panel
+{
+    height:300px;
+    display:none;
+}
+
+a{
+    color: #ef4136;
+}
