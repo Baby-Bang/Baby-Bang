@@ -5,7 +5,7 @@ class NavigationBar extends React.Component {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-2">
-                        <div class="navbar-header">
+                        <div className="navbar-header">
 
                         <Picture/>
                             </div>
@@ -23,7 +23,7 @@ class NavigationBar extends React.Component {
 
 class Picture extends React.Component {
     render() {
-        return <img src="../images/logo3.gif"/>
+        return <img src="../images/logo.gif"/>
         }
 }
 
