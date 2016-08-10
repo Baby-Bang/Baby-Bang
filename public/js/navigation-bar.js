@@ -1,10 +1,14 @@
 class NavigationBar extends React.Component {
+
     render() {
         return <nav className="navbar navbar-default">
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-2">
+                        <div class="navbar-header">
+
                         <Picture/>
+                            </div>
                     </div>
                     <Head/>
                     <div className="col-md-2">
@@ -19,9 +23,8 @@ class NavigationBar extends React.Component {
 
 class Picture extends React.Component {
     render() {
-        return <image src="public/images/logo.jpg"></image>
-
-    }
+        return <img src="../images/logo3.gif"/>
+        }
 }
 
 class Head extends React.Component {
