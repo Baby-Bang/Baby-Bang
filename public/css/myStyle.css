@@ -46,3 +46,7 @@
     height: 400px;
     margin: 0px auto;
 }
+.carousel-caption{
+    font-size: 200%;
+    color: lightpink;
+}
