@@ -42,7 +42,7 @@ const App = React.createClass({
                        target="_blank">
 
                         <img className="img-rounded" src="../images/clothes.jpg"alt="衣服"/>
-                        <div className="carousel-caption">clothes</div>
+                        <div className="carousel-caption" >clothes</div>
                     </a>
                 </div>
                 <div className="item">
