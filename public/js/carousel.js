@@ -1,4 +1,14 @@
 const App = React.createClass({
+    componentDidMount(){
+        $(function () {
+            $(".carousel").carousel({
+                interval:2500,      //设置轮播切换速度
+                keyboard:true,   //设置是否启用鼠标控制图片轮播切换
+                pause:"hover",   //鼠标进入时暂停轮播循环，鼠标离开时恢复轮播循环。
+                wrap:true      //设置是否循环播放
+            });
+        });
+    },
     render: function () {
 
         return <div id="myCarousel" className="carousel slide">
@@ -51,10 +61,14 @@ const App = React.createClass({
                 </div>
             </div>
 
-            <a className="carousel-control left" href="#myCarousel"
-               role="button" data-slide="prev">&lsaquo;</a>
-            <a className="carousel-control right" href="#myCarousel"
-               role="button" data-slide="next">&rsaquo;</a>
+            <a className="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span className="glyphicon glyphicon-chevron-left" />
+                <span className="sr-only">Previous</span>
+            </a>
+            <a className="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span className="glyphicon glyphicon-chevron-right" />
+                <span className="sr-only">Next</span>
+            </a>
         </div>
     }
 });
