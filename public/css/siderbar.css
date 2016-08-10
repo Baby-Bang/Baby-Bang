@@ -14,12 +14,9 @@ div.panel
 
 p#flip{
     margin:0px;
-    /*width:150px;*/
     padding:5px;
     text-align:center;
-    padding-top: 20%;
-    /*background:antiquewhite;*/
-    /*border:solid 1px #c3c3c3;*/
+    padding-top: 50px;
 }
 
 div.panel
