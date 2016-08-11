@@ -31,12 +31,12 @@ module.exports = React.createClass({
         return <div className="siderbar">
             <p id="flip" className="glyphicon glyphicon-align-justify">点击我</p>
             <div className="panel">
-                <Link to="/">首页</Link><br/>
+                <p>首页</p>
                 <p onClick={this.judge}>成长日记</p>
-                <Link to="#">育儿心得</Link><br/>
-                <Link to="#">闲置转让</Link><br/>
-                <Link to="#">爸爸圈</Link><br/>
-                <Link to="#">妈妈圈</Link><br/>
+                <p onClick="">育儿心得</p>
+                <p onClick="">闲置转让</p>
+                <p onClick="">爸爸圈</p>
+                <p onClick="">妈妈圈</p>
             </div>
         </div>
     }
