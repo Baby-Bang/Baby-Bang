@@ -43,7 +43,7 @@ export default class LoginRegister extends Component {
                 <div className="row" id="logTop">
                     <div className="col-md-4 col-md-offset-2">
                         <div>
-                            <img src="../images/育儿帮.png"/>
+                            <img src="../images/babybang.png"/>
                         </div>
                         <div>
                             <img src="../images/om-user.png"/>

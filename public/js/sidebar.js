@@ -1,7 +1,6 @@
 import {Link} from 'react-router';
 import React from 'react';
 import {browserHistory} from 'react-router';
-import LogIn from './log-in';
 
 module.exports = React.createClass({
     getInitialState(){
