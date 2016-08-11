@@ -1,3 +1,6 @@
+import {Link} from 'react-router';
+
+
 module.exports = React.createClass({
     componentDidMount(){
         $(document).ready(function () {
@@ -19,11 +22,12 @@ const Sidebar = React.createClass({
         return <div className="siderbar">
             <p id="flip" className="glyphicon glyphicon-align-justify">点击我</p>
             <div className="panel">
-                <a href="#">成长日记</a><br/>
-                <a href="#">育儿心得</a><br/>
-                <a href="#">闲置转让</a><br/>
-                <a href="#">爸爸圈</a><br/>
-                <a href="#">妈妈圈</a><br/>
+                <Link to="/">首页</Link><br/>
+                <Link to="/growup">成长日记</Link><br/>
+                <Link to="#">育儿心得</Link><br/>
+                <Link to="#">闲置转让</Link><br/>
+                <Link to="#">爸爸圈</Link><br/>
+                <Link to="#">妈妈圈</Link><br/>
             </div>
         </div>
     }

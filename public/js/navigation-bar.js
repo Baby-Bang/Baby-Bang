@@ -26,7 +26,7 @@ export default class NavigationBar extends Component {
                             <Picture/>
                         </div>
                     </div>
-                    <Head/>
+                    <Head name={this.props.name}/>
                     <div className={this.state.userName === '' ? "col-md-2" : "hidden"}>
                         <SignInButton/>
                         <LogInButton/>
@@ -51,7 +51,7 @@ class Head extends Component {
     render() {
         return <div className="col-md-8">
             <div className="center">
-                <h1><p className="navbar-text">育 儿 帮</p></h1>
+                <h1><p className="navbar-text">{this.props.name}</p></h1>
             </div>
         </div>
     }
