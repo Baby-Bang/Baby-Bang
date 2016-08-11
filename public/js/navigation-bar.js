@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
+import {browserHistory} from 'react-router';
 
 export default class NavigationBar extends Component {
     constructor(props) {
@@ -18,8 +19,8 @@ export default class NavigationBar extends Component {
     changeLogout(){
         $.post('/logout', (userName) => {
             this.setState({userName});
-            console.log(userName)
         });
+        browserHistory.push('/');
     }
     render() {
         return <nav className="navbar navbar-default">
@@ -73,7 +74,7 @@ class SignInButton extends Component {
 class LogInButton extends Component {
     render() {
         return <Link to="/logIn">
-            <button type="button" className="btn btn-link navbar-btn pull-right">登陆</button>
+            <button type="button" className="btn btn-link navbar-btn pull-right">登录</button>
         </Link>
     }
 }

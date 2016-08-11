@@ -37,12 +37,6 @@ app.post('/logout',(req,res) => {
 
 app.post('/logIn', mdb.findOne);
 
-// app.post('/logIn', (req, res) => {
-//
-//     req.session.name = req.body.name;
-//     res.send(true)
-// });
-
 app.listen(3000, () => {
     console.log('Server start');
 });

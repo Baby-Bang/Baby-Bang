@@ -5,8 +5,8 @@
 # Logs
 dist/
 logs
-*.log
-npm-debug.log*
+*.Log
+npm-debug.Log*
 
 # Runtime data
 pids
