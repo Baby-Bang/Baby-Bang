@@ -1,30 +1,39 @@
 import {Link} from 'react-router';
-
 import React from 'react';
+import {browserHistory} from 'react-router';
+import LogIn from './log-in';
 
 module.exports = React.createClass({
+    getInitialState(){
+        return {
+            userName: ''
+        }
+    },
     componentDidMount(){
         $(document).ready(function () {
             $("#flip").click(function () {
                 $(".panel").slideToggle("slow");
             });
         });
+
+        $.get('/logIn', (userName) => {
+            this.setState({userName});
+        });
     },
-    render(){
-        return <div>
-            <Sidebar></Sidebar>
-        </div>
-    }
-});
-
-
-const Sidebar = React.createClass({
+    judge(){
+        if (this.state.userName === '') {
+            if (confirm('还未登陆，是否登陆！'))
+                browserHistory.push('/logIn')   
+        } else {
+            browserHistory.push('/growup');
+        }
+    },
     render(){
         return <div className="siderbar">
             <p id="flip" className="glyphicon glyphicon-align-justify">点击我</p>
             <div className="panel">
                 <Link to="/">首页</Link><br/>
-                <Link to="/growup">成长日记</Link><br/>
+                <p onClick={this.judge}>成长日记</p>
                 <Link to="#">育儿心得</Link><br/>
                 <Link to="#">闲置转让</Link><br/>
                 <Link to="#">爸爸圈</Link><br/>

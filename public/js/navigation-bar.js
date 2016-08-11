@@ -21,7 +21,6 @@ export default class NavigationBar extends Component {
                 <div className="row">
                     <div className="col-md-2">
                         <div className="navbar-header">
-
                             <Picture/>
                         </div>
                     </div>
