@@ -1,7 +1,6 @@
 import {Link} from 'react-router';
 import React from 'react';
 import {browserHistory} from 'react-router';
-import LogIn from './log-in';
 
 module.exports = React.createClass({
     getInitialState(){
@@ -15,18 +14,18 @@ module.exports = React.createClass({
                 $(".panel").slideToggle("slow");
             });
         });
-
-        $.get('/logIn', (userName) => {
-            this.setState({userName});
-        });
     },
     judge(){
-        if (this.state.userName === '') {
-            if (confirm('还未登陆，是否登陆！'))
-                browserHistory.push('/logIn')   
-        } else {
-            browserHistory.push('/growup');
-        }
+        $.get('/logIn', (userName) => {
+            this.setState({userName}, () => {
+                if (this.state.userName === '') {
+                    if (confirm('还未登陆，是否登陆！'))
+                        browserHistory.push('/logIn')
+                } else {
+                    browserHistory.push('/growup');
+                }
+            });
+        });
     },
     render(){
         return <div className="siderbar">

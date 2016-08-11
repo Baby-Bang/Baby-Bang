@@ -15,6 +15,12 @@ export default class NavigationBar extends Component {
         });
     }
 
+    changeLogout(){
+        $.post('/logout', (userName) => {
+            this.setState({userName});
+            console.log(userName)
+        });
+    }
     render() {
         return <nav className="navbar navbar-default">
             <div className="container-fluid">
@@ -30,7 +36,7 @@ export default class NavigationBar extends Component {
                         <LogInButton/>
                     </div>
                     <div className={this.state.userName === '' ? "hidden" : "col-md-2"}>
-                        <LogOutButton/>
+                        <LogOutButton changeLogout={this.changeLogout.bind(this)}/>
                         <UserName userName={this.state.userName}/>
                     </div>
                 </div>
@@ -82,8 +88,8 @@ class UserName extends Component {
 
 class LogOutButton extends Component {
     render() {
-        return <Link to="#">
-            <button type="button" className="btn btn-link navbar-btn pull-right">登出</button>
-        </Link>
+        return <div>
+            <button type="button" className="btn btn-link navbar-btn pull-right" onClick={this.props.changeLogout.bind(this)}>登出</button>
+            </div>
     }
 }

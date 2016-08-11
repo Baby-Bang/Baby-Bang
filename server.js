@@ -29,6 +29,12 @@ app.get('/logIn', (req, res) => {
     }
 });
 
+app.post('/logout',(req,res) => {
+    req.session.name = '';
+    res.send(req.session.name);
+    console.log(req.session.name)
+})
+
 app.post('/logIn', mdb.findOne);
 
 // app.post('/logIn', (req, res) => {

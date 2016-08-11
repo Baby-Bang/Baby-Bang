@@ -19,7 +19,6 @@ export default class LoginRegister extends Component {
                 }
             });
         });
-
     }
 
     render() {
