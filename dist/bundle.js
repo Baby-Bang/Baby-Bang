@@ -63,6 +63,10 @@
 	
 	var _homePage2 = _interopRequireDefault(_homePage);
 	
+	var _logIn = __webpack_require__(/*! ./log-in */ 226);
+	
+	var _logIn2 = _interopRequireDefault(_logIn);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -96,11 +100,12 @@
 	
 	(0, _reactDom.render)(_react2.default.createElement(
 	    _reactRouter.Router,
-	    null,
+	    { history: _reactRouter.browserHistory },
 	    _react2.default.createElement(
 	        _reactRouter.Route,
 	        { path: '/', component: App },
-	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _homePage2.default })
+	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _homePage2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: '/logIn', component: _logIn2.default })
 	    )
 	), document.getElementById('main'));
 
@@ -26511,7 +26516,6 @@
 	
 	            $.get('/logIn', function (userName) {
 	                _this2.setState({ userName: userName });
-	                console.log(userName);
 	            });
 	        }
 	    }, {
@@ -26653,8 +26657,8 @@
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                'a',
-	                { href: 'http://localhost:3000/log-in.html' },
+	                _reactRouter.Link,
+	                { to: '/logIn' },
 	                _react2.default.createElement(
 	                    'button',
 	                    { type: 'button', className: 'btn btn-link navbar-btn pull-right' },
@@ -26726,11 +26730,17 @@
 /*!*******************************!*\
   !*** ./public/js/carousel.js ***!
   \*******************************/
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	module.exports = React.createClass({
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	module.exports = _react2.default.createClass({
 	    displayName: "exports",
 	    componentDidMount: function componentDidMount() {
 	        $(function () {
@@ -26745,90 +26755,90 @@
 	
 	    render: function render() {
 	
-	        return React.createElement(
+	        return _react2.default.createElement(
 	            "div",
 	            { id: "myCarousel", className: "carousel slide" },
-	            React.createElement(
+	            _react2.default.createElement(
 	                "ol",
 	                { className: "carousel-indicators" },
-	                React.createElement("li", { "data-target": "#myCarousel", "data-slide-to": "0", className: "active" }),
-	                React.createElement("li", { "data-target": "#myCarousel", "data-slide-to": "1" }),
-	                React.createElement("li", { "data-target": "#myCarousel", "data-slide-to": "2" }),
-	                React.createElement("li", { "data-target": "#myCarousel", "data-slide-to": "3" }),
-	                React.createElement("li", { "data-target": "#myCarousel", "data-slide-to": "4" })
+	                _react2.default.createElement("li", { "data-target": "#myCarousel", "data-slide-to": "0", className: "active" }),
+	                _react2.default.createElement("li", { "data-target": "#myCarousel", "data-slide-to": "1" }),
+	                _react2.default.createElement("li", { "data-target": "#myCarousel", "data-slide-to": "2" }),
+	                _react2.default.createElement("li", { "data-target": "#myCarousel", "data-slide-to": "3" }),
+	                _react2.default.createElement("li", { "data-target": "#myCarousel", "data-slide-to": "4" })
 	            ),
-	            React.createElement(
+	            _react2.default.createElement(
 	                "div",
 	                { className: "carousel-inner" },
-	                React.createElement(
+	                _react2.default.createElement(
 	                    "div",
 	                    { className: "item active" },
-	                    React.createElement(
+	                    _react2.default.createElement(
 	                        "a",
 	                        { href: "https://www.amazon.cn/s/ref=nb_ss?ie=UTF8&keywords=%E7%8E%A9%E5%85%B7+%E5%A9%B4%E5%84%BF&tag=googhydrcn-23&index=baby&hvadid=44268539950&hvpos=1t1&hvexid=&hvnetw=g&hvrand=17905765057394918716&hvpone=&hvptwo=&hvqmt=b&hvdev=c&ref=pd_sl_94vpwa0tas_b",
 	                            target: "_blank" },
-	                        React.createElement("img", { className: "img-rounded", src: "../images/tools.jpg", alt: "玩具" }),
-	                        React.createElement(
+	                        _react2.default.createElement("img", { className: "img-rounded", src: "../images/tools.jpg", alt: "玩具" }),
+	                        _react2.default.createElement(
 	                            "div",
 	                            { className: "carousel-caption" },
 	                            "tools"
 	                        )
 	                    )
 	                ),
-	                React.createElement(
+	                _react2.default.createElement(
 	                    "div",
 	                    { className: "item" },
-	                    React.createElement(
+	                    _react2.default.createElement(
 	                        "a",
 	                        { href: "https://www.amazon.cn/s/ref=nb_sb_noss_1?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&url=search-alias%3Dbaby&field-keywords=%E5%A9%B4%E5%84%BF%E5%BA%8A&rh=n%3A42692071%2Ck%3A%E5%A9%B4%E5%84%BF%E5%BA%8A",
 	                            target: "_blank" },
-	                        React.createElement("img", { className: "img-rounded", src: "../images/babyroom.jpg", alt: "婴儿房" }),
-	                        React.createElement(
+	                        _react2.default.createElement("img", { className: "img-rounded", src: "../images/babyroom.jpg", alt: "婴儿房" }),
+	                        _react2.default.createElement(
 	                            "div",
 	                            { className: "carousel-caption" },
 	                            "baby-room"
 	                        )
 	                    )
 	                ),
-	                React.createElement(
+	                _react2.default.createElement(
 	                    "div",
 	                    { className: "item" },
-	                    React.createElement(
+	                    _react2.default.createElement(
 	                        "a",
 	                        { href: "https://www.amazon.cn/s/ref=nb_sb_noss_1?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&url=search-alias%3Dbaby&field-keywords=%E5%A9%B4%E5%84%BF%E8%A1%A3%E6%9C%8D&rh=n%3A42692071%2Ck%3A%E5%A9%B4%E5%84%BF%E8%A1%A3%E6%9C%8D",
 	                            target: "_blank" },
-	                        React.createElement("img", { className: "img-rounded", src: "../images/clothes.jpg", alt: "衣服" }),
-	                        React.createElement(
+	                        _react2.default.createElement("img", { className: "img-rounded", src: "../images/clothes.jpg", alt: "衣服" }),
+	                        _react2.default.createElement(
 	                            "div",
 	                            { className: "carousel-caption" },
 	                            "clothes"
 	                        )
 	                    )
 	                ),
-	                React.createElement(
+	                _react2.default.createElement(
 	                    "div",
 	                    { className: "item" },
-	                    React.createElement(
+	                    _react2.default.createElement(
 	                        "a",
 	                        { href: "https://www.amazon.cn/s/ref=nb_sb_noss_1?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&url=search-alias%3Dbaby&field-keywords=%E5%A9%B4%E5%84%BF%E8%BD%A6&rh=n%3A42692071%2Ck%3A%E5%A9%B4%E5%84%BF%E8%BD%A6",
 	                            target: "_blank" },
-	                        React.createElement("img", { className: "img-rounded", src: "../images/buggy.jpg", alt: "婴儿车" }),
-	                        React.createElement(
+	                        _react2.default.createElement("img", { className: "img-rounded", src: "../images/buggy.jpg", alt: "婴儿车" }),
+	                        _react2.default.createElement(
 	                            "div",
 	                            { className: "carousel-caption" },
 	                            "buggy"
 	                        )
 	                    )
 	                ),
-	                React.createElement(
+	                _react2.default.createElement(
 	                    "div",
 	                    { className: "item" },
-	                    React.createElement(
+	                    _react2.default.createElement(
 	                        "a",
 	                        { href: "https://www.amazon.cn/s/ref=nb_sb_noss_2?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&url=search-alias%3Dbaby&field-keywords=%E5%A5%B6%E7%B2%89%E5%A9%B4%E5%84%BF&rh=n%3A42692071%2Ck%3A%E5%A5%B6%E7%B2%89%E5%A9%B4%E5%84%BF",
 	                            target: "_blank" },
-	                        React.createElement("img", { className: "img-rounded", src: "../images/milkpowder.jpg", alt: "奶粉" }),
-	                        React.createElement(
+	                        _react2.default.createElement("img", { className: "img-rounded", src: "../images/milkpowder.jpg", alt: "奶粉" }),
+	                        _react2.default.createElement(
 	                            "div",
 	                            { className: "carousel-caption" },
 	                            "milk-powder"
@@ -26836,21 +26846,21 @@
 	                    )
 	                )
 	            ),
-	            React.createElement(
+	            _react2.default.createElement(
 	                "a",
 	                { className: "left carousel-control", href: "#myCarousel", role: "button", "data-slide": "prev" },
-	                React.createElement("span", { className: "glyphicon glyphicon-chevron-left" }),
-	                React.createElement(
+	                _react2.default.createElement("span", { className: "glyphicon glyphicon-chevron-left" }),
+	                _react2.default.createElement(
 	                    "span",
 	                    { className: "sr-only" },
 	                    "Previous"
 	                )
 	            ),
-	            React.createElement(
+	            _react2.default.createElement(
 	                "a",
 	                { className: "right carousel-control", href: "#myCarousel", role: "button", "data-slide": "next" },
-	                React.createElement("span", { className: "glyphicon glyphicon-chevron-right" }),
-	                React.createElement(
+	                _react2.default.createElement("span", { className: "glyphicon glyphicon-chevron-right" }),
+	                _react2.default.createElement(
 	                    "span",
 	                    { className: "sr-only" },
 	                    "Next"
@@ -26865,11 +26875,17 @@
 /*!******************************!*\
   !*** ./public/js/sidebar.js ***!
   \******************************/
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	module.exports = React.createClass({
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	module.exports = _react2.default.createClass({
 	    displayName: "exports",
 	    componentDidMount: function componentDidMount() {
 	        $(document).ready(function () {
@@ -26879,62 +26895,207 @@
 	        });
 	    },
 	    render: function render() {
-	        return React.createElement(
+	        return _react2.default.createElement(
 	            "div",
 	            null,
-	            React.createElement(Sidebar, null)
+	            _react2.default.createElement(Sidebar, null)
 	        );
 	    }
 	});
 	
-	var Sidebar = React.createClass({
+	var Sidebar = _react2.default.createClass({
 	    displayName: "Sidebar",
 	    render: function render() {
-	        return React.createElement(
+	        return _react2.default.createElement(
 	            "div",
 	            { className: "siderbar" },
-	            React.createElement(
+	            _react2.default.createElement(
 	                "p",
 	                { id: "flip", className: "glyphicon glyphicon-align-justify" },
 	                "点击我"
 	            ),
-	            React.createElement(
+	            _react2.default.createElement(
 	                "div",
 	                { className: "panel" },
-	                React.createElement(
+	                _react2.default.createElement(
 	                    "a",
 	                    { href: "#" },
 	                    "成长日记"
 	                ),
-	                React.createElement("br", null),
-	                React.createElement(
+	                _react2.default.createElement("br", null),
+	                _react2.default.createElement(
 	                    "a",
 	                    { href: "#" },
 	                    "育儿心得"
 	                ),
-	                React.createElement("br", null),
-	                React.createElement(
+	                _react2.default.createElement("br", null),
+	                _react2.default.createElement(
 	                    "a",
 	                    { href: "#" },
 	                    "闲置转让"
 	                ),
-	                React.createElement("br", null),
-	                React.createElement(
+	                _react2.default.createElement("br", null),
+	                _react2.default.createElement(
 	                    "a",
 	                    { href: "#" },
 	                    "爸爸圈"
 	                ),
-	                React.createElement("br", null),
-	                React.createElement(
+	                _react2.default.createElement("br", null),
+	                _react2.default.createElement(
 	                    "a",
 	                    { href: "#" },
 	                    "妈妈圈"
 	                ),
-	                React.createElement("br", null)
+	                _react2.default.createElement("br", null)
 	            )
 	        );
 	    }
 	});
+
+/***/ },
+/* 226 */
+/*!*****************************!*\
+  !*** ./public/js/log-in.js ***!
+  \*****************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _reactRouter = __webpack_require__(/*! react-router */ 159);
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var LoginRegister = function (_Component) {
+	    _inherits(LoginRegister, _Component);
+	
+	    function LoginRegister(props) {
+	        _classCallCheck(this, LoginRegister);
+	
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LoginRegister).call(this, props));
+	
+	        _this.state = {
+	            isExist: true
+	        };
+	        return _this;
+	    }
+	
+	    _createClass(LoginRegister, [{
+	        key: 'logIn',
+	        value: function logIn(name, password) {
+	            var _this2 = this;
+	
+	            $.post('/logIn', { name: name, password: password }, function (isExist) {
+	                _this2.setState({ isExist: isExist });
+	            });
+	            if (this.state.isExist === true) {
+	                _reactRouter.browserHistory.push('/');
+	            } else {}
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(LogInView, { onLog: this.logIn.bind(this) })
+	            );
+	        }
+	    }]);
+	
+	    return LoginRegister;
+	}(_react.Component);
+	
+	exports.default = LoginRegister;
+	
+	var LogInView = function (_Component2) {
+	    _inherits(LogInView, _Component2);
+	
+	    function LogInView() {
+	        _classCallCheck(this, LogInView);
+	
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(LogInView).apply(this, arguments));
+	    }
+	
+	    _createClass(LogInView, [{
+	        key: 'logIn',
+	        value: function logIn() {
+	            this.props.onLog(document.getElementById('userName').value, document.getElementById('passWord').value);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                    'form',
+	                    { className: 'form-horizontal' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group row' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { className: 'col-md-1 col-md-offset-6 control-label' },
+	                            '用户名：'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-3' },
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'userName' })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group row' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { className: 'col-md-1 col-md-offset-6 control-label' },
+	                            '密码：'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-3' },
+	                            _react2.default.createElement('input', { type: 'password', className: 'form-control', id: 'passWord' })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-offset-9 col-md-1' },
+	                            _react2.default.createElement(
+	                                'button',
+	                                { type: 'button', className: 'btn btn-default', onClick: this.logIn.bind(this) },
+	                                '登陆'
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return LogInView;
+	}(_react.Component);
 
 /***/ }
 /******/ ]);
