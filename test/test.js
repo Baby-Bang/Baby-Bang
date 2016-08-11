@@ -29,12 +29,6 @@ describe('loading express', function () {
             .expect(200, done);
     });
 
-    it('responds to post /logIn', function testPath(done) {
-        request(server)
-            .post('/logIn')
-            .expect(200, done);
-    });
-
     it('404 is a wrong path', function (done) {
         request(server)
             .get('/foo/bar')
