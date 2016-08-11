@@ -12,7 +12,6 @@ export default class NavigationBar extends Component {
     componentDidMount() {
         $.get('/logIn', (userName) => {
             this.setState({userName});
-            console.log(userName);
         });
     }
 
@@ -68,9 +67,9 @@ class SignInButton extends Component {
 
 class LogInButton extends Component {
     render() {
-        return <a href="http://localhost:3000/log-in.html">
+        return <Link to="/logIn">
             <button type="button" className="btn btn-link navbar-btn pull-right">登陆</button>
-        </a>
+        </Link>
     }
 }
 

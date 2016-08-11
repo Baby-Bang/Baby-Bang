@@ -3,6 +3,7 @@
 
 ### Node ###
 # Logs
+dist/
 logs
 *.log
 npm-debug.log*
@@ -96,3 +97,14 @@ fabric.properties
 # modules.xml
 # .idea/misc.xml 
 # *.ipr
+
+# Created by https://www.gitignore.io/api/dist
+
+#!! ERROR: dist is undefined. Use list command to see defined gitignore types !!#
+gitignore.io help:
+list - lists the operating systems, programming languages and IDE input types
+:types: - creates .gitignore files for types of operating systems, programming languages or IDEs
+
+# Created by https://www.gitignore.io/api/webpack
+
+#!! ERROR: webpack is undefined. Use list command to see defined gitignore types !!#

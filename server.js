@@ -29,6 +29,7 @@ app.get('/logIn', (req, res) => {
 });
 
 app.post('/logIn', (req, res) => {
+    req.session.name = req.body.name;
     res.send(true)
 });
 
