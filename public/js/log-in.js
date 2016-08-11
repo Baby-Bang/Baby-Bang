@@ -5,19 +5,21 @@ export default class LoginRegister extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isExist: true
+            isExist: ''
         }
     }
 
     logIn(name, password) {
         $.post('/logIn', {name: name, password: password}, (isExist) => {
-            this.setState({isExist});
+            this.setState({isExist}, () => {
+                if (this.state.isExist === true) {
+                    browserHistory.push('/');
+                } else if(this.state.isExist === false){
+                    document.getElementById('error').innerHTML = '密码输入错误!'
+                }
+            });
         });
-        if (this.state.isExist === true) {
-            browserHistory.push('/');
-        } else {
 
-        }
     }
 
     render() {
@@ -29,7 +31,11 @@ export default class LoginRegister extends Component {
 
 class LogInView extends Component {
     logIn() {
-        this.props.onLog(document.getElementById('userName').value, document.getElementById('passWord').value);
+        if(document.getElementById('userName').value && document.getElementById('passWord').value) {
+            this.props.onLog(document.getElementById('userName').value, document.getElementById('passWord').value);
+        } else {
+            document.getElementById('error').innerHTML = '用户或密码不能为空';
+        }
     }
 
     render() {
@@ -47,6 +53,8 @@ class LogInView extends Component {
                     <div className="col-md-3">
                         <input type="password" className="form-control" id="passWord"/>
                     </div>
+                </div>
+                <div className="col-md-3 col-md-offset-7" id="error">
                 </div>
                 <div className="form-group">
                     <div className="col-md-offset-9 col-md-1">
