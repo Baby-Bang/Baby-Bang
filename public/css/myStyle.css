@@ -8,7 +8,7 @@
 #main {
     background: #fee1e3;
     width: 100%;
-    height: 1000px;
+    height: 750px;
     filter: alpha(opacity:60);
     opacity: 1;
     -moz-opacity: 0.6;
@@ -50,3 +50,58 @@
     font-size: 200%;
     color: lightpink;
 }
+
+#backColor{
+    background: #ffffff;
+    height: 400px;
+    width: 400px;
+}
+
+#navColor{
+    background: #ffffff;
+    height: 70px;
+    width:100%;
+}
+
+#logTop{
+    margin-top: 120px;
+}
+#Loglist{
+    width:370px;
+    height:50px;
+    border-bottom:3px solid #ff6382;
+}
+.logA{
+    display: block;
+    float: left;
+    width:60px;
+    height:50px;
+    text-align: center;
+    line-height:60px;
+    font-size:18px;
+    text-align: center;
+    margin-left:80px;
+    text-decoration:none;
+}
+.logA:visited{
+    color:#000000;
+}
+.logA:hover{
+    border-bottom:3px solid #ff6382;
+}
+.logA:active{
+    color:#ff6382;
+}
+.text{
+    margin-bottom: 25px;
+}
+.logbtn{
+    width:278px;
+    height: 40px;
+    background:#ff6382;
+    margin:20px 0px 0px 62px;
+}
+.iii{
+    color:red;
+}
+

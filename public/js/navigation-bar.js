@@ -68,7 +68,7 @@ class SignInButton extends Component {
 class LogInButton extends Component {
     render() {
         return <Link to="/logIn">
-            <button type="button" className="btn btn-link navbar-btn pull-right">登陆</button>
+            <button type="button" className="btn btn-link navbar-btn pull-right">登录</button>
         </Link>
     }
 }

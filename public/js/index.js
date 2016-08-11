@@ -6,7 +6,9 @@ import {IndexRoute} from 'react-router';
 import { browserHistory } from 'react-router'
 import Home from './home-page';
 import GrowupHome from './growup-page'
-import LogIn from './log-in';
+import LogIn from './login-register';
+import Log from './logIn';
+import Sign from './sign';
 
 class App extends React.Component {
     render() {
@@ -20,6 +22,9 @@ render(<Router history={browserHistory}>
     <Route path="/" component={App}>
         <IndexRoute component={Home}/>
         <Route path="/growup" component={GrowupHome}/>
-        <Route path="/logIn" component={LogIn}/>
+        <Route path="/logIn" component={LogIn}>
+            <IndexRoute component={Log}></IndexRoute>
+            <Route path="/sign" component={Sign}/>
+        </Route>
     </Route>
 </Router>, document.getElementById('main'));
