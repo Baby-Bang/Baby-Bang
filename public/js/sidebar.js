@@ -1,4 +1,4 @@
-const App = React.createClass({
+module.exports = React.createClass({
     componentDidMount(){
         $(document).ready(function () {
             $("#flip").click(function () {
@@ -28,5 +28,3 @@ const Sidebar = React.createClass({
         </div>
     }
 });
-
-ReactDOM.render(<App/>, document.getElementById('sidebar'))

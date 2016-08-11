@@ -1,4 +1,4 @@
-const App = React.createClass({
+module.exports = React.createClass({
     componentDidMount(){
         $(function () {
             $(".carousel").carousel({
@@ -72,6 +72,3 @@ const App = React.createClass({
         </div>
     }
 });
-ReactDOM.render(
-    <App />
-    , document.getElementById('carousel'));

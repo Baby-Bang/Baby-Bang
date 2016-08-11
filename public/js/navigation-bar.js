@@ -1,4 +1,7 @@
-class NavigationBar extends React.Component {
+import React, {Component} from 'react';
+import {Link} from 'react-router';
+
+export default class NavigationBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,13 +41,13 @@ class NavigationBar extends React.Component {
     }
 }
 
-class Picture extends React.Component {
+class Picture extends Component {
     render() {
         return <img src="../images/logo.gif"/>
     }
 }
 
-class Head extends React.Component {
+class Head extends Component {
     render() {
         return <div className="col-md-8">
             <div className="center">
@@ -54,39 +57,35 @@ class Head extends React.Component {
     }
 }
 
-class SignInButton extends React.Component {
+class SignInButton extends Component {
     render() {
-        return <ReactRouter.Link to="#">
+        return <Link to="#">
             <button type="button" className="btn btn-link navbar-btn pull-right">注册</button>
-        </ReactRouter.Link>
+        </Link>
 
     }
 }
 
-class LogInButton extends React.Component {
+class LogInButton extends Component {
     render() {
-        return <ReactRouter.Link to="#">
+        return <a href="http://localhost:3000/log-in.html">
             <button type="button" className="btn btn-link navbar-btn pull-right">登陆</button>
-        </ReactRouter.Link>
+        </a>
     }
 }
 
-class UserName extends React.Component {
+class UserName extends Component {
     render() {
-        return <ReactRouter.Link to="#">
+        return <Link to="#">
             <button type="button" className="btn btn-link navbar-btn pull-right">{this.props.userName}</button>
-        </ReactRouter.Link>
+        </Link>
     }
 }
 
-class LogOutButton extends React.Component {
+class LogOutButton extends Component {
     render() {
-        return <ReactRouter.Link to="#">
+        return <Link to="#">
             <button type="button" className="btn btn-link navbar-btn pull-right">登出</button>
-        </ReactRouter.Link>
+        </Link>
     }
 }
-
-ReactDOM.render(<ReactRouter.Router>
-    <ReactRouter.Route path="/" component={NavigationBar}/>
-</ReactRouter.Router>, document.getElementById('navigationBar'));
