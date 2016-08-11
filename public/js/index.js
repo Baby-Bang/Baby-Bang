@@ -5,6 +5,7 @@ import {Route} from 'react-router';
 import {IndexRoute} from 'react-router';
 import { browserHistory } from 'react-router'
 import Home from './home-page';
+import GrowupHome from './growup-page'
 import LogIn from './log-in';
 
 class App extends React.Component {
@@ -18,6 +19,7 @@ class App extends React.Component {
 render(<Router history={browserHistory}>
     <Route path="/" component={App}>
         <IndexRoute component={Home}/>
+        <Route path="/growup" component={GrowupHome}/>
         <Route path="/logIn" component={LogIn}/>
     </Route>
 </Router>, document.getElementById('main'));

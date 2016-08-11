@@ -3,11 +3,12 @@ import {render} from 'react-dom';
 import NavigationBar from './navigation-bar';
 import Carousel from './carousel';
 import Sidebar from './sidebar';
+import Growup from './growup';
 
-export default class Home extends React.Component {
+export default class GrowupHome extends React.Component {
     render() {
         return <div>
-            <NavigationBar name="育 儿 帮"/>
+            <NavigationBar name="成 长 日 记"/>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-2">
@@ -15,6 +16,9 @@ export default class Home extends React.Component {
                     </div>
                     <div className="col-md-8">
                         <Carousel/>
+                    </div>
+                    <div>
+                        <Growup/>
                     </div>
                 </div>
             </div>
