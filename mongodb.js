@@ -5,12 +5,9 @@ const findOne = (req, res) => {
     const userInfo = {name: req.body.name};
 
     MongoClient.connect(DB_CONN_STR,(err, db)=> {
-        console.log("link ok");
         const collection = db.collection('user');
         collection.find(userInfo).toArray(function (err, docs) {
-            console.log(docs);
             const user = docs.find(doc => doc.password === req.body.password);
-            console.log(user);
 
             if(user) {
                 req.session.name = user.name;
