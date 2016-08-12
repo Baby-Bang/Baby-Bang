@@ -3,6 +3,7 @@ import {render} from 'react-dom';
 import NavigationBar from './navigation-bar';
 import Carousel from './carousel';
 import Sidebar from './sidebar';
+import {browserHistory} from 'react-router';
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -14,15 +15,20 @@ export default class Home extends React.Component {
 
     componentWillMount() {
         $.get('/logIn', (userName) => {
-            this.setState({userName}, () => {
-                console.log(this.state.userName + 'h')
-            });
+            this.setState({userName});
         });
+    }
+
+    changLogout() {
+        $.post('/logout',(userName) => {
+            this.setState({userName});
+        });
+        browserHistory.push('/');
     }
 
     render() {
         return <div>
-            <NavigationBar name="育 儿 帮" userName={this.state.userName}/>
+            <NavigationBar name="育 儿 帮" userName={this.state.userName} onChangLogout={this.changLogout.bind(this)}/>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-2">

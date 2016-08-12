@@ -44,9 +44,13 @@ function server() {
         req.session.name = '';
         res.send(req.session.name);
         console.log(req.session.name)
-    })
+    });
 
     app.post('/logIn', mdb.findOne);
+
+    app.post('/existUser', mdb.findUserExist);
+
+    app.post('/userInfo',mdb.saveUserInfo);
 
     var server = app.listen(3000, function () {
         var port = server.address().port;

@@ -1,15 +1,11 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
-import {browserHistory} from 'react-router';
 
 export default class NavigationBar extends Component {
     changeLogout(){
-        $.post('/logout', (userName) => {
-        });
-        browserHistory.push('/');
+        this.props.onChangLogout();
     }
     render() {
-        console.log(this.props.userName + 'a')
         return <nav className="navbar navbar-default">
             <div className="container-fluid">
                 <div className="row">
@@ -51,7 +47,7 @@ class Head extends Component {
 
 class SignInButton extends Component {
     render() {
-        return <Link to="#">
+        return <Link to="/sign">
             <button type="button" className="btn btn-link navbar-btn pull-right">注册</button>
         </Link>
 

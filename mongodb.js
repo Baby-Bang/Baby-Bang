@@ -20,6 +20,37 @@ const findOne = (req, res) => {
     })
 };
 
+const saveUserInfo=(req,res)=>{
+    const userInfo=req.body;
+
+    MongoClient.connect(DB_CONN_STR,(err,db)=>{
+        const collection=db.collection('user');
+        const result=collection.insertOne(userInfo);
+        req.session.name = req.body.name;
+        console.log(result);
+        res.json(result);
+        db.close();
+    })
+
+};
+
+const findUserExist = (req, res) => {
+    const userName = {name: req.body.userName};
+
+    MongoClient.connect(DB_CONN_STR,(err, db)=> {
+        const collection = db.collection('user');
+        collection.find(userName).toArray(function (err, docs) {
+            if(docs.length === 0) {
+                res.send(false);
+            } else {
+                res.send(true);
+            }
+        });
+        db.close();
+    })
+};
+
+
 const insertOne = function (req,res) {
     const userInfo = req.body;
 
@@ -61,5 +92,7 @@ module.exports = {
     findOne,
     insertOne,
     deleteOne,
-    updateOne
+    updateOne,
+    findUserExist,
+    saveUserInfo
 };

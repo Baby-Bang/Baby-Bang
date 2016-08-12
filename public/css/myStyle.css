@@ -105,3 +105,6 @@
     color:red;
 }
 
+.textColor {
+    color: rgba(0, 0, 0, 0.5);
+}
