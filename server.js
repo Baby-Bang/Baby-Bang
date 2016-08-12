@@ -10,7 +10,7 @@ function server() {
     const app = new express();
     const session = require('express-session');
 
-    app.use(bodyParser.urlencoded());
+    app.use(bodyParser.urlencoded({ extended: true }));
 
     app.use(express.static('./views'));
 
@@ -18,10 +18,20 @@ function server() {
     app.use(express.static('./dist'));
     app.use(session({
         secret: 'a',
-        cookie: {maxAge: 60 * 1000}
+        resave: true,
+        saveUninitialized: true,
     }));
 
     app.get('/logIn', (req, res) => {
+        if (req.session.name) {
+            res.send(req.session.name);
+        } else {
+            req.session.name = '';
+            res.send(req.session.name)
+        }
+    });
+
+    app.get('/session', (req, res) => {
         if (req.session.name) {
             res.send(req.session.name);
         } else {

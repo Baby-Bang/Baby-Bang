@@ -3,26 +3,13 @@ import {Link} from 'react-router';
 import {browserHistory} from 'react-router';
 
 export default class NavigationBar extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            userName: ''
-        }
-    }
-
-    componentDidMount() {
-        $.get('/logIn', (userName) => {
-            this.setState({userName});
-        });
-    }
-
     changeLogout(){
         $.post('/logout', (userName) => {
-            this.setState({userName});
         });
         browserHistory.push('/');
     }
     render() {
+        console.log(this.props.userName + 'a')
         return <nav className="navbar navbar-default">
             <div className="container-fluid">
                 <div className="row">
@@ -32,13 +19,13 @@ export default class NavigationBar extends Component {
                         </div>
                     </div>
                     <Head name={this.props.name}/>
-                    <div className={this.state.userName === '' ? "col-md-2" : "hidden"}>
+                    <div className={this.props.userName === '' ? "col-md-2" : "hidden"}>
                         <SignInButton/>
                         <LogInButton/>
                     </div>
-                    <div className={this.state.userName === '' ? "hidden" : "col-md-2"}>
+                    <div className={this.props.userName === '' ? "hidden" : "col-md-2"}>
                         <LogOutButton changeLogout={this.changeLogout.bind(this)}/>
-                        <UserName userName={this.state.userName}/>
+                        <UserName userName={this.props.userName}/>
                     </div>
                 </div>
             </div>

@@ -21,10 +21,10 @@ class App extends React.Component {
 render(<Router history={browserHistory}>
     <Route path="/" component={App}>
         <IndexRoute component={Home}/>
-        <Route path="/growup" component={GrowupHome}/>
         <Route path="/logIn" component={LogIn}>
             <IndexRoute component={Log}></IndexRoute>
             <Route path="/sign" component={Sign}/>
         </Route>
+        <Route path="/growUp" component={GrowupHome}/>
     </Route>
 </Router>, document.getElementById('main'));
