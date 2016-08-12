@@ -122,3 +122,16 @@
 .textColor {
     color: rgba(0, 0, 0, 0.5);
 }
+#diary-show-font{
+    font-size:25px;
+    font-weight: bold;
+    border-style: inset;
+}
+#diary-show-border{
+    height: 500px;
+    width: 900px;
+    margin-top: 30px;
+}
+#diary-show-table{
+    width: 900px;
+}

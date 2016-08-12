@@ -20,6 +20,18 @@ const findOne = (req, res) => {
     })
 };
 
+const findDiary = (req, res) => {
+
+    MongoClient.connect(DB_CONN_STR, (err, db)=> {
+        console.log("link ok");
+        const collection = db.collection('user');
+        collection.find().toArray(function (err, docs) {
+            res.send(docs);
+        });
+        db.close();
+    })
+}
+
 const saveUserInfo=(req,res)=>{
     const userInfo=req.body;
 
@@ -90,6 +102,7 @@ const updateOne = function (req,res) {
 
 module.exports = {
     findOne,
+    findDiary,
     insertOne,
     deleteOne,
     updateOne,
