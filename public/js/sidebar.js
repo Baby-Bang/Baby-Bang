@@ -27,11 +27,14 @@ module.exports = React.createClass({
             });
         });
     },
+    linkToHome(){
+        browserHistory.push('/')
+    },
     render(){
         return <div className="siderbar">
             <p id="flip" className="glyphicon glyphicon-align-justify">点击我</p>
             <div className="panel">
-                <p>首页</p>
+                <p onClick={this.linkToHome}>首页</p>
                 <p onClick={this.judge}>成长日记</p>
                 <p onClick="">育儿心得</p>
                 <p onClick="">闲置转让</p>
