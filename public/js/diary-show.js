@@ -27,7 +27,7 @@ export default class DiaryShow extends Component {
         return <div className="row">
             <div id="diary-show-table" className="col-md-8 col-md-offset-2">
                 <p id="diary-show-font">精彩日记</p>
-                <ShowTitle texts={this.state.texts}/>
+                <ShowTitle texts={this.state.texts} buildInfo={this.props.buildInfo}/>
             </div>
         </div>
     }
@@ -49,6 +49,9 @@ const ShowTitle = React.createClass({
 
         return text;
     },
+    onAdd(ele) {
+        this.props.buildInfo(ele);
+    },
     render: function () {
         const array = this.sort(this.props.texts).slice(0, 4);
         const diary = array.map((ele, index) => {
@@ -59,7 +62,7 @@ const ShowTitle = React.createClass({
                         <div className="col-md-11">
                             <Link to="/diary-page">
                                 <span className="glyphicon glyphicon-triangle-right"></span>
-                                {ele.title}
+                                <button onClick={this.onAdd.bind(this, ele)}>{ele.title}</button>
                             </Link>
                         </div>
                         <div className="col-md-1">

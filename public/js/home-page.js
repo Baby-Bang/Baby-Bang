@@ -40,7 +40,7 @@ export default class Home extends React.Component {
                     </div>
                 </div>
                 <div >
-                    <DiaryShow/>
+                    <DiaryShow buildInfo={this.props.buildInfo}/>
                 </div>
             </div>
         </div>

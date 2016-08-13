@@ -12,7 +12,7 @@ export default class DiaryHome extends React.Component {
                         <Sidebar/>
                     </div>
                     <div className="col-md-4">
-                        <Diary/>
+                        <Diary information={this.props.information}/>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@ const Diary = React.createClass({
     render: function () {
         return <div className="row">
             <div className="col-md-8 col-md-offset-2">
-                <input id="diary-show-border" type="text"/>
+                <p>标题：{this.props.information.title}</p>
             </div>
         </div>
     }
