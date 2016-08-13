@@ -9,7 +9,7 @@ import GrowupHome from './growup-page'
 import LogIn from './login-register';
 import Log from './logIn';
 import Sign from './sign';
-import GrowthProcess from './growth-process';
+
 import Editor from './editor-page';
 import DiaryHome from './diary-page';
 class App extends React.Component {
@@ -28,7 +28,6 @@ render(<Router history={browserHistory}>
             <Route path="/sign" component={Sign}/>
         </Route>
         <Route path="/growUp" component={GrowupHome}/>
-        <Route path="/course" component={GrowthProcess}/>
         <Route path="/editor" component={Editor}/>
         <Route path="/diary-page" component={DiaryHome}/>
     </Route>
