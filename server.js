@@ -52,7 +52,7 @@ function server() {
 
     app.post('/userInfo',mdb.saveUserInfo);
 
-    app.post('/',mdb.findDiary);
+    app.post('/diray-show',mdb.findDiary);
 
     app.get('/diaries', (req,res) => {
         res.json(req.session.userInfo.diaries);

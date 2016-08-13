@@ -10,7 +10,7 @@ export default class DiaryShow extends Component {
     }
 
     componentDidMount() {
-        $.post('/', (userinfo)=> {
+        $.post('/diray-show', (userinfo)=> {
             const texts = this.state.texts;
             for (var i of userinfo) {
                 for (const j of i.diaries) {
@@ -26,8 +26,7 @@ export default class DiaryShow extends Component {
     render() {
         return <div className="row">
             <div id="diary-show-table" className="col-md-8 col-md-offset-2">
-                <p id="diary-show-font">精彩日记
-                </p>
+                <p id="diary-show-font">精彩日记</p>
                 <ShowTitle texts={this.state.texts}/>
             </div>
         </div>
