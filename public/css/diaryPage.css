@@ -1,0 +1,18 @@
+#diaryTitle{
+    background: transparent;
+    border: transparent;
+}
+#titleDiv{
+    margin-left: 15%;
+    width: 70%;
+    height: 50px;
+    margin-top: 30px;
+    background-color: white;
+}
+#contentDiv{
+    margin-top: 15px;
+    margin-left: 15%;
+    width: 70%;
+    height: 600px;
+    background-color: white;
+}

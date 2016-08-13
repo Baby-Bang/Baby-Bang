@@ -11,7 +11,7 @@ export default class DiaryHome extends React.Component {
                     <div className="col-md-1">
                         <Sidebar/>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-10">
                         <Diary information={this.props.information}/>
                     </div>
                 </div>
@@ -22,10 +22,12 @@ export default class DiaryHome extends React.Component {
 
 const Diary = React.createClass({
     render: function () {
-        return <div className="row">
-            <div className="col-md-8 col-md-offset-2">
-                <p>标题：{this.props.information.title}</p>
-                <p>内容：{this.props.information.content}</p>
+        return <div>
+            <div id="titleDiv">
+                <h2>标题：{this.props.information.title}</h2>
+            </div>
+            <div id="contentDiv">
+                <p>{this.props.information.content}</p>
             </div>
         </div>
     }

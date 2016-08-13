@@ -62,7 +62,7 @@ const ShowTitle = React.createClass({
                         <div className="col-md-11">
                             <Link to="/diary-page">
                                 <span className="glyphicon glyphicon-triangle-right"></span>
-                                <button onClick={this.onAdd.bind(this, ele)}>{ele.title}</button>
+                                <button id="diaryTitle" onClick={this.onAdd.bind(this, ele)}>{ele.title}</button>
                             </Link>
                         </div>
                         <div className="col-md-1">
