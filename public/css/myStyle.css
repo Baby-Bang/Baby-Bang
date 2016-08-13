@@ -86,22 +86,52 @@
 .logA:visited{
     color:#000000;
 }
+#userExist,#samePassword{
+    color:red;
+    padding-left:10px;
+}
 .logA:hover{
     border-bottom:3px solid #ff6382;
 }
 .logA:active{
     color:#ff6382;
 }
+.sex{
+    color:rgba(0,0,0,0.5);
+    font-size:16px;
+}
 .text{
     margin-bottom: 25px;
 }
-.logbtn{
+.logbtn,.signbtn{
     width:278px;
     height: 40px;
     background:#ff6382;
+
+}
+.logbtn{
     margin:20px 0px 0px 62px;
+}
+.signbtn{
+    margin:6px 0px 0px 62px;
 }
 .iii{
     color:red;
 }
 
+.textColor {
+    color: rgba(0, 0, 0, 0.5);
+}
+#diary-show-font{
+    font-size:25px;
+    font-weight: bold;
+    border-style: inset;
+}
+#diary-show-border{
+    height: 500px;
+    width: 900px;
+    margin-top: 30px;
+}
+#diary-show-table{
+    width: 900px;
+}

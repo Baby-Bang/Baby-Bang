@@ -3,11 +3,6 @@ import React from 'react';
 import {browserHistory} from 'react-router';
 
 module.exports = React.createClass({
-    getInitialState(){
-        return {
-            userName: ''
-        }
-    },
     componentDidMount(){
         $(document).ready(function () {
             $("#flip").click(function () {
@@ -17,14 +12,12 @@ module.exports = React.createClass({
     },
     judge(){
         $.get('/logIn', (userName) => {
-            this.setState({userName}, () => {
-                if (this.state.userName === '') {
-                    if (confirm('还未登陆，是否登陆！'))
-                        browserHistory.push('/logIn')
-                } else {
-                    browserHistory.push('/growup');
-                }
-            });
+            if (userName === '') {
+                if (confirm('还未登陆，是否登陆！'))
+                    browserHistory.push('/logIn')
+            } else {
+                browserHistory.push('/growUp');
+            }
         });
     },
     linkToHome(){
