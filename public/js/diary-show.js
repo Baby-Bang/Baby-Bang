@@ -48,7 +48,7 @@ const ShowTitle = React.createClass({
         return text;
     },
     render: function () {
-        const array = this.sort(this.props.texts).splice(0, 4);
+        const array = this.sort(this.props.texts).slice(0,4);
         const diary = array.map((ele, index) => {
             return <div key={index}>
 
