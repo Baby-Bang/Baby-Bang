@@ -131,3 +131,24 @@
 #diary-show-table{
     width: 900px;
 }
+.leftDate{
+    list-style:none;
+}
+.jjj{
+    width:100px;
+    background-color:rgba(0,0,0,0.1);
+    margin:50px 0px 0px 50px;
+    border:2px solid rgba(255,67,45,0.4);
+}
+
+.jjj div li{
+    font-size:16px;
+    color:#2F6FAD;
+    text-align: center;
+    padding-bottom:10px;
+}
+.jjj div div li p{
+    font-size:16px;
+    color:#2F6FAD;
+    text-align: center;
+}
