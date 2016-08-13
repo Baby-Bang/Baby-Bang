@@ -38,9 +38,9 @@ const saveUserInfo=(req,res)=>{
 
     MongoClient.connect(DB_CONN_STR,(err,db)=>{
         const collection=db.collection('user');
+        userInfo.diaries = [];
         const result=collection.insertOne(userInfo);
         req.session.name = req.body.name;
-        userInfo.diaries = [];
         req.session.userInfo = userInfo;
         console.log(result);
         res.json(result);

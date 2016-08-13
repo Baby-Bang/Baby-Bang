@@ -13,20 +13,22 @@ export default class DiaryShow extends Component {
         $.post('/', (userinfo)=> {
             const texts = this.state.texts;
             for (var i of userinfo) {
-                for (const j of i.diary) {
+                for (const j of i.diaries) {
                     texts.push({likeNumber: j.likeNumber, title: j.title, content: j.content});
                 }
             }
-            this.setState({texts});
+            this.setState({texts},() =>{
+            });
         })
+
     }
 
     render() {
         return <div className="row">
             <div id="diary-show-table" className="col-md-8 col-md-offset-2">
                 <p id="diary-show-font">精彩日记
-                    <ShowTitle texts={this.state.texts}/>
                 </p>
+                <ShowTitle texts={this.state.texts}/>
             </div>
         </div>
     }
@@ -49,7 +51,7 @@ const ShowTitle = React.createClass({
         return text;
     },
     render: function () {
-        const array = this.sort(this.props.texts).splice(0, 4);
+        const array = this.sort(this.props.texts).slice(0, 4);
         const diary = array.map((ele, index) => {
             return <div key={index}>
 

@@ -54,6 +54,10 @@ function server() {
 
     app.post('/',mdb.findDiary);
 
+    app.get('/diaries', (req,res) => {
+        res.json(req.session.userInfo.diaries);
+    });
+
     var server = app.listen(3000, function () {
         var port = server.address().port;
         console.log('listening at port %s', port);

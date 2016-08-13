@@ -14,7 +14,7 @@ export default class Growup extends Component{
                 </Link>
             </div>
             <div className="grow-button2">
-                <Link to="#">
+                <Link to="/course">
                     <button className="grow-button">查看历史</button>
                 </Link>
             </div>
