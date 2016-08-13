@@ -9,6 +9,7 @@ import GrowupHome from './growup-page'
 import LogIn from './login-register';
 import Log from './logIn';
 import Sign from './sign';
+import Editor from './editor-page'
 
 class App extends React.Component {
     render() {
@@ -22,6 +23,7 @@ render(<Router history={browserHistory}>
     <Route path="/" component={App}>
         <IndexRoute component={Home}/>
         <Route path="/growup" component={GrowupHome}/>
+        <Route path="/editor" component={Editor}/>
         <Route path="/logIn" component={LogIn}>
             <IndexRoute component={Log}></IndexRoute>
             <Route path="/sign" component={Sign}/>
