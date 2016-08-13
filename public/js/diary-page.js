@@ -25,6 +25,7 @@ const Diary = React.createClass({
         return <div className="row">
             <div className="col-md-8 col-md-offset-2">
                 <p>标题：{this.props.information.title}</p>
+                <p>内容：{this.props.information.content}</p>
             </div>
         </div>
     }
