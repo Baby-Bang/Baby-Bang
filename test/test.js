@@ -14,13 +14,13 @@ describe('loading express', function () {
     it('responds to get /logIn', function testSlash(done) {
         request(server)
             .get('/logIn')
-            .expect(200, done);
+            .expect(200, '',done);
     });
 
     it('responds to post /logout', function testSlash(done) {
         request(server)
             .post('/logout')
-            .expect(200, done);
+            .expect(200, '', done);
     });
 
     it('responds to get /', function testPath(done) {

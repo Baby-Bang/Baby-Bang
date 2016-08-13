@@ -17,7 +17,7 @@ export default class LoginRegister extends Component {
                 if (this.state.isExist === true) {
                     browserHistory.push('/');
                 } else if (this.state.isExist === false) {
-                    document.getElementById('error').innerHTML = '密码输入错误!'
+                    document.getElementById('error').innerHTML = '用户或密码输入错误!'
                 }
             });
         });
@@ -26,8 +26,12 @@ export default class LoginRegister extends Component {
 
     activeChange(type) {
         if (type === 'log') {
+            document.getElementById('sign').style.background='#fff';
+            document.getElementById('log').style.background='rgba(55,55,55,0.1)';
             browserHistory.push('/logIn');
         } else {
+            document.getElementById('log').style.background='#fff';
+            document.getElementById('sign').style.background='rgba(55,55,55,0.1)';
             browserHistory.push('/sign');
         }
     }
@@ -51,8 +55,8 @@ export default class LoginRegister extends Component {
                     </div>
                     <div className="col-md-5" id="backColor">
                         <div id="Loglist" className="center">
-                            <span onClick={this.activeChange.bind(this, 'log')} className="logA">登录</span>
-                            <span onClick={this.activeChange.bind(this, 'sign')} className="logA">注册</span>
+                            <span onClick={this.activeChange.bind(this, 'log')} className="logA" id="log">登录</span>
+                            <span onClick={this.activeChange.bind(this, 'sign')} className="logA" id="sign">注册</span>
                         </div>
 
                         {this.props.children && React.cloneElement(this.props.children, {

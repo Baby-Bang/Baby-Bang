@@ -11,6 +11,7 @@ const findOne = (req, res) => {
 
             if(user) {
                 req.session.name = user.name;
+                req.session.userInfo = user;
                 res.send(true);
             } else {
                 res.send(false);
@@ -27,6 +28,8 @@ const saveUserInfo=(req,res)=>{
         const collection=db.collection('user');
         const result=collection.insertOne(userInfo);
         req.session.name = req.body.name;
+        userInfo.diaries = [];
+        req.session.userInfo = userInfo;
         console.log(result);
         res.json(result);
         db.close();

@@ -3,12 +3,13 @@ import {render} from 'react-dom';
 import {Router} from 'react-router';
 import {Route} from 'react-router';
 import {IndexRoute} from 'react-router';
-import { browserHistory } from 'react-router'
+import {browserHistory} from 'react-router'
 import Home from './home-page';
 import GrowupHome from './growup-page'
 import LogIn from './login-register';
 import Log from './logIn';
 import Sign from './sign';
+import GrowthProcess from './growth-process';
 
 class App extends React.Component {
     render() {
@@ -25,6 +26,8 @@ render(<Router history={browserHistory}>
             <IndexRoute component={Log}></IndexRoute>
             <Route path="/sign" component={Sign}/>
         </Route>
-        <Route path="/growUp" component={GrowupHome}/>
+        <Route path="/growUp" component={GrowupHome}>
+            <Route path="/course" component={GrowthProcess}/>
+        </Route>
     </Route>
 </Router>, document.getElementById('main'));

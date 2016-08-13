@@ -4,6 +4,7 @@ import NavigationBar from './navigation-bar';
 import Carousel from './carousel';
 import Sidebar from './sidebar';
 import Growup from './growup';
+import {browserHistory} from 'react-router';
 
 export default class GrowupHome extends Component {
     constructor(props) {
@@ -22,10 +23,17 @@ export default class GrowupHome extends Component {
         console.log(111)
     }
 
+    changLogout() {
+        $.post('/logout',(userName) => {
+            this.setState({userName});
+        });
+        browserHistory.push('/');
+    }
+
     render() {
         console.log(this.state.userName + 'g1')
         return <div>
-            <NavigationBar name="成 长 日 记" userName={this.state.userName}/>
+            <NavigationBar name="成 长 日 记" userName={this.state.userName} onChangLogout={this.changLogout.bind(this)}/>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-2">
