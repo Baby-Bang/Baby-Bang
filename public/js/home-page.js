@@ -4,6 +4,7 @@ import NavigationBar from './navigation-bar';
 import Carousel from './carousel';
 import Sidebar from './sidebar';
 import {browserHistory} from 'react-router';
+import DiaryShow from './diary-show'
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -37,6 +38,9 @@ export default class Home extends React.Component {
                     <div className="col-md-8">
                         <Carousel/>
                     </div>
+                </div>
+                <div >
+                    <DiaryShow/>
                 </div>
             </div>
         </div>

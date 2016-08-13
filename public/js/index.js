@@ -10,7 +10,8 @@ import LogIn from './login-register';
 import Log from './logIn';
 import Sign from './sign';
 import GrowthProcess from './growth-process';
-
+import Editor from './editor-page';
+import DiaryHome from './diary-page';
 class App extends React.Component {
     render() {
         return <div>
@@ -26,8 +27,9 @@ render(<Router history={browserHistory}>
             <IndexRoute component={Log}></IndexRoute>
             <Route path="/sign" component={Sign}/>
         </Route>
-        <Route path="/growUp" component={GrowupHome}>
-            <Route path="/course" component={GrowthProcess}/>
-        </Route>
+        <Route path="/growUp" component={GrowupHome}/>
+        <Route path="/course" component={GrowthProcess}/>
+        <Route path="/editor" component={Editor}/>
+        <Route path="/diary-page" component={DiaryHome}/>
     </Route>
 </Router>, document.getElementById('main'));
