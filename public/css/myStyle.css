@@ -152,3 +152,27 @@
     color:#2F6FAD;
     text-align: center;
 }
+
+.listLi{
+    border: 0px;
+    background-color: #fee1e3;
+    padding: 0px 15px;
+}
+
+.pcolor{
+    color: #000000;
+}
+
+.titleColor{
+    color: #000000;
+    font-size: 20px;
+}
+
+.timeColor{
+    color: #888888;
+}
+
+.processBackground{
+    background-color: #ffffff;
+    height: auto;
+}

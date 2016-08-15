@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+let yearCount = 0, monthCount = 0, dayCount = 0;
+
 export default class GrowthProcess extends Component {
     constructor(props) {
         super(props);
@@ -46,24 +48,47 @@ export default class GrowthProcess extends Component {
                     dealMonth.push(i);
                 }
 
-                return {year: y, month: dealMonth.reverse()};
+                const monthDay = dealMonth.map(m => {
+                    let dealDay = [];
+                    for (let i of date) {
+                        if (i[1] === m && i[0] === y) {
+                            dealDay.push(i[2]);
+                        }
+                    }
+
+                    const mySetDay = new Set();
+                    dealDay.map(i => mySetDay.add(i));
+                    dealDay = [];
+
+                    for (let i of mySetDay) {
+                        dealDay.push(i);
+                    }
+
+                    return {month: m, day: dealDay}
+                });
+
+                return {year: y, monthDay: monthDay};
             });
+            console.log(resultDate);
             this.setState({year, month, day, resultDate});
 
             this.setState({diaries});
         }, 'json');
     }
-    diaries(m){
+
+    diaries(m) {
 
     }
 
     render() {
-        return <div className="row">
-            <div className="col-md-4">
-                <LeftLists date={this.state.resultDate} diaries={this.diaries}/>
-            </div>
-            <div className="col-md-7">
-                <RightLists diaries={this.state.diaries}/>
+        return <div className="container-fluid">
+            <div className="row">
+                <div className="col-md-3 col-md-offset-1">
+                    <LeftLists date={this.state.resultDate} diaries={this.diaries}/>
+                </div>
+                <div className="col-md-6">
+                    <RightLists diaries={this.state.diaries}/>
+                </div>
             </div>
         </div>
     }
@@ -73,9 +98,11 @@ class RightLists extends React.Component {
     render() {
         return <div>
             {this.props.diaries.map((diary, index) => {
-                return <div key={index} id={index}>
-                    <p>标题：{diary.title}</p>
-                    <p>内容：{diary.content}</p>
+                return <div key={index} id={diary.date} className="processBackground">
+                    <p className="titleColor">{diary.title}</p>
+                    <p className="timeColor">{diary.date}</p>
+                    <hr/>
+                    <p className="titleColor">{diary.content}</p>
                 </div>
             })}
         </div>
@@ -83,14 +110,14 @@ class RightLists extends React.Component {
 }
 
 class LeftLists extends React.Component {
-    
     render() {
         return <div>
-            <ul className="list-group jjj">
+            <ul className="nav nav-pills nav-stacked">
                 {this.props.date.map((d, index) => {
                     return <div key={index}>
                         <DateLists date={d} diaries={this.props.diaries}/>
                     </div>
+
                 })}
             </ul>
         </div>
@@ -111,16 +138,16 @@ class DateLists extends React.Component {
             isShow: !this.state.isShow
         })
     }
-    showDiaries(m){
-        this.props.diaries(m);
-    }
+
     render() {
         return <div>
-            <li className="list-group-item"><p onClick={this.show.bind(this)}>{this.props.date.year}</p>
-                <ul className={this.state.isShow ? "list-group jjj" : "hidden"}>
-                    {this.props.date.month.map((m, i) => {
+            <li className="list-group-item listLi"><a
+                href={`#${this.props.date.year}-${this.props.date.monthDay[0].month}-${this.props.date.monthDay[0].day[0]}`}>
+                <h3 onClick={this.show.bind(this)} className="pcolor">{this.props.date.year}年</h3></a>
+                <ul className={this.state.isShow ? "nav nav-pills nav-stacked" : "hidden"}>
+                    {this.props.date.monthDay.map((m, i) => {
                         return <div key={i}>
-                            <li onClick={this.showDiaries.bind(this,m)} className="list-group-item"><a href={`#${i}`}> {m}</a></li>
+                            <MonthDay date={m} year={this.props.date.year}/>
                         </div>;
                     })}
                 </ul>
@@ -128,4 +155,38 @@ class DateLists extends React.Component {
         </div>
     }
 }
+
+class MonthDay extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isShow: false
+        }
+    }
+
+    show() {
+        this.setState({
+            isShow: !this.state.isShow
+        })
+    }
+
+    render() {
+        return <div>
+            <li className="list-group-item listLi"><a
+                href={`#${this.props.year}-${this.props.date.month}-${this.props.date.day[0]}`}><h4
+                onClick={this.show.bind(this)} className="pcolor"> {this.props.date.month}月</h4></a>
+                <ul className={this.state.isShow ? "nav nav-pills nav-stacked" : "hidden"}>
+                    {this.props.date.day.map((d, i) => {
+                        return <div key={i}>
+                            <li className="list-group-item listLi"><a
+                                href={`#${this.props.year}-${this.props.date.month}-${this.props.date.day[i]}`}><h5
+                                className="pcolor">{d}日</h5></a></li>
+                        </div>
+                    })}
+                </ul>
+            </li>
+        </div>
+    }
+}
+
 
