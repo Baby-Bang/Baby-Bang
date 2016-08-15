@@ -1,4 +1,4 @@
-.center{
+.center {
     display: table;
     width: auto;
     margin-left: auto;
@@ -8,10 +8,11 @@
 #main {
     background: #fee1e3;
     width: 100%;
-    height: 800px;
+    height:auto;
     filter: alpha(opacity:60);
     opacity: 1;
     -moz-opacity: 0.6;
+    padding-bottom: 200px;
 }
 
 .navbar{
@@ -166,13 +167,80 @@
 .titleColor{
     color: #000000;
     font-size: 20px;
+    padding-top: 20px;
+    padding-left: 10px;
 }
 
 .timeColor{
     color: #888888;
+    padding-left: 10px;
+}
+
+.contentColor{
+    color: #000000;
+    font-size: 17px;
+    padding-left: 10px;
 }
 
 .processBackground{
     background-color: #ffffff;
     height: auto;
+    margin-bottom: 30px;
+}
+
+.topProcess{
+    margin-top: 50px;
+}
+
+.heartColor{
+    color: #ff0000;
+    margin-left: 10px;
+}
+
+.hrHeight {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.likeColor{
+    color: #888888;
+    padding-left: 0px;
+}
+
+.threeInline{
+    display: inline;
+}
+
+.babyParent {
+    padding-bottom: 10px;
+}
+
+.starColor{
+    color: #fff000;
+}
+.leftFixed{
+    width: 20%;
+    left:50px;
+    top:150px;
+    position: fixed;
+    border:2px solid rgba(0,0,0,0.1);
+}
+.returnFixed{
+    position: fixed;
+    bottom: 50px;
+    right:60px;
+}
+
+#kongKong,#ao{
+    color: #ffffff;
+    font-size: 60px;
+}
+
+#ao {
+    margin: 50px 0px 50px 450px;
+}
+
+
+#kongKong{
+    margin: 50px 0px 0px 850px;
 }

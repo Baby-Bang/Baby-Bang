@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
-
-let yearCount = 0, monthCount = 0, dayCount = 0;
+import NavigationBar from './navigation-bar';
+import {browserHistory} from 'react-router';
+import {Link} from 'react-router';
 
 export default class GrowthProcess extends Component {
     constructor(props) {
         super(props);
         this.state = {
             diaries: [],
-            year: [],
-            day: [],
-            month: [],
-            resultDate: []
+            resultDate: [],
+            userName: ''
         }
     }
 
@@ -69,25 +68,45 @@ export default class GrowthProcess extends Component {
 
                 return {year: y, monthDay: monthDay};
             });
-            console.log(resultDate);
             this.setState({year, month, day, resultDate});
 
             this.setState({diaries});
         }, 'json');
+        $.get('/logIn', (userName) => {
+            this.setState({userName});
+        });
     }
 
-    diaries(m) {
-
+    changLogout() {
+        $.post('/logout');
+        browserHistory.push('/');
     }
 
     render() {
-        return <div className="container-fluid">
-            <div className="row">
-                <div className="col-md-3 col-md-offset-1">
-                    <LeftLists date={this.state.resultDate} diaries={this.diaries}/>
-                </div>
-                <div className="col-md-6">
-                    <RightLists diaries={this.state.diaries}/>
+        return <div>
+            <NavigationBar name="成 长 历 程" userName={this.state.userName} onChangLogout={this.changLogout.bind(this)}/>
+            <div className="returnFixed">
+                <Link to="/growUp">
+                    <button className="growup-button">返回</button>
+                </Link>
+            </div>
+            <div className="container-fluid">
+                <div className="row  topProcess">
+                    <div className={this.state.resultDate.length === 0 ? "" : "hidden"}>
+                        <h1 id="ao">～啊哦</h1>
+                        <div className="center">
+                        <img src="../images/dingdang.png"/>
+                            </div>
+                        <h1 id="kongKong">空空如也</h1>
+                    </div>
+                    <div className={this.state.resultDate.length === 0 ? "hidden" : "leftFixed"}>
+                        <div className="center">
+                            <LeftLists date={this.state.resultDate}/>
+                        </div>
+                    </div>
+                    <div className="col-md-6 col-md-offset-4 ">
+                        <RightLists diaries={this.state.diaries}/>
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,9 +119,38 @@ class RightLists extends React.Component {
             {this.props.diaries.map((diary, index) => {
                 return <div key={index} id={diary.date} className="processBackground">
                     <p className="titleColor">{diary.title}</p>
-                    <p className="timeColor">{diary.date}</p>
-                    <hr/>
-                    <p className="titleColor">{diary.content}</p>
+                    <p className="timeColor threeInline">{diary.date}</p>
+                    <span className="glyphicon glyphicon-heart heartColor threeInline" aria-hidden="true"></span>
+                    <p className="likeColor threeInline">{diary.likeNumber}</p>
+                    <hr className="hrHeight"/>
+                    <p className="contentColor">{diary.content}</p>
+                    <hr className="hrHeight"/>
+                    <div className="babyParent">
+                        <p className="timeColor threeInline">宝宝表现：</p>
+                        {[0, 0, 0, 0, 0].map((star, index) => {
+                            if (index < diary.babyScore) {
+                                return <div key={index} className="threeInline">
+                                    <span className="glyphicon glyphicon-star starColor"></span>
+                                </div>
+                            } else {
+                                return <div key={index} className="threeInline">
+                                    <span className="glyphicon glyphicon-star-empty starColor"></span>
+                                </div>
+                            }
+                        })}
+                        <p className="timeColor threeInline">父母表现：</p>
+                        {[0, 0, 0, 0, 0].map((star, index) => {
+                            if (index < diary.parent) {
+                                return <div key={index} className="threeInline">
+                                    <span className="glyphicon glyphicon-star starColor"></span>
+                                </div>
+                            } else {
+                                return <div key={index} className="threeInline">
+                                    <span className="glyphicon glyphicon-star-empty starColor"></span>
+                                </div>
+                            }
+                        })}
+                    </div>
                 </div>
             })}
         </div>

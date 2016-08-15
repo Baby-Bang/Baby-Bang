@@ -1,4 +1,5 @@
 import {browserHistory} from 'react-router';
+import {Link} from 'react-router';
 import React, {Component} from 'react';
 
 export default class LoginRegister extends Component {
@@ -40,7 +41,7 @@ export default class LoginRegister extends Component {
         return <div>
             <div id="navColor">
                 <div className="center">
-                    <img src="../images/logintop.png" height="60px"/>
+                    <Link to="/"><img src="../images/logintop.png" height="60px"/></Link>
                 </div>
             </div>
             <div className="container-fluid">

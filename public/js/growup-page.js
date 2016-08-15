@@ -24,9 +24,7 @@ export default class GrowupHome extends Component {
     }
 
     changLogout() {
-        $.post('/logout',(userName) => {
-            this.setState({userName});
-        });
+        $.post('/logout');
         browserHistory.push('/');
     }
 
