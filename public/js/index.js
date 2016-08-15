@@ -23,11 +23,16 @@ class App extends React.Component {
         this.state.information = info;
         browserHistory.push('/diary-page');
     }
+    addLikeNum(info) {
+        this.state.information = info;
+        this.setState({information: this.state.information});
+    }
     render() {
         return <div>
             {this.props.children && React.cloneElement(this.props.children, {
                 information: this.state.information,
-                buildInfo: this.buildInfo.bind(this)
+                buildInfo: this.buildInfo.bind(this),
+                addLikeNum: this.addLikeNum.bind(this)
             })}
         </div>
     }

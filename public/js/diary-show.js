@@ -14,7 +14,7 @@ export default class DiaryShow extends Component {
             const texts = this.state.texts;
             for (var i of userinfo) {
                 for (const j of i.diaries) {
-                    texts.push({likeNumber: j.likeNumber, title: j.title, content: j.content});
+                    texts.push({likeNumber: j.likeNumber, title: j.title, content: j.content,name: i.name});
                 }
             }
             this.setState({texts},() =>{
@@ -22,7 +22,6 @@ export default class DiaryShow extends Component {
         })
 
     }
-
     render() {
         return <div className="row">
             <div id="diary-show-table" className="col-md-8 col-md-offset-2">
@@ -52,6 +51,7 @@ const ShowTitle = React.createClass({
     onAdd(ele) {
         this.props.buildInfo(ele);
     },
+
     render: function () {
         const array = this.sort(this.props.texts).slice(0, 4);
         const diary = array.map((ele, index) => {

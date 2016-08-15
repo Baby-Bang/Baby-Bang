@@ -103,6 +103,16 @@ const updateOne = function (req,res) {
     })
 };
 
+const addLikeNum = function (req, res) {
+    const userInfo = req.body.info;
+    MongoClient.connect(DB_CONN_STR, (err, db) => {
+        const collection = db.collection('user');
+        collection.updateOne({"name": userInfo.name, "diaries.title": userInfo.title},
+            {$set:{"diaries.$.likeNumber": userInfo.likeNumber}});
+        db.close();
+    })
+}
+
 module.exports = {
     findOne,
     findDiary,
@@ -110,5 +120,6 @@ module.exports = {
     deleteOne,
     updateOne,
     findUserExist,
-    saveUserInfo
+    saveUserInfo,
+    addLikeNum
 };
