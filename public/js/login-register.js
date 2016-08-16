@@ -2,13 +2,11 @@ import {browserHistory} from 'react-router';
 import {Link} from 'react-router';
 import React, {Component} from 'react';
 
-export default class LoginRegister extends Component {
+    export default class LoginRegister extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isExist: '',
-            isActiveLog: '',
-            isActiveSign: ''
+            isExist: ''
         }
     }
 

@@ -12,7 +12,7 @@
     filter: alpha(opacity:60);
     opacity: 1;
     -moz-opacity: 0.6;
-    padding-bottom: 500px;
+    padding-bottom: 200px;
 }
 
 .navbar{
@@ -243,4 +243,77 @@
 
 #kongKong{
     margin: 50px 0px 0px 850px;
+}
+.message{
+    width:55%;
+    height:auto;
+    border:2px solid rgba(0,0,0,0.1);
+}
+#pas{
+
+    margin-top: 180px;
+}
+
+.pasPad {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.modalPad{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.btn-persion{
+    width:90px;
+}
+.inputText{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.nameGra {
+    font-size: 19px;
+    color: #888888;
+}
+.passError{
+    color:red;
+    margin-left:210px;
+}
+.gra{
+    margin-top:20px;
+    margin-left:45px;
+    margin-bottom: 20px;
+}
+#person{
+    width:100%;
+    height:auto;
+    margin-top:50px;
+
+}
+.sex1{
+    display:inline-block;
+    padding-left:50px;
+}
+
+.radiopad{
+    padding-left: 40px;
+}
+
+.magButton{
+    margin-top: 80px;
+}
+
+.fontType{
+    font-family: aria;
+    font-size: 15px;
+    line-height: 19px;
+}
+
+.magPerson{
+    display:block;
+    margin-top:15px;
+}
+
+.magBackColor1 {
+    margin-bottom: 350px;
+    background-color: #fee1e3;
 }

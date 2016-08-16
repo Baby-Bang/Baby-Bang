@@ -102,6 +102,32 @@ const updateOne = function (req,res) {
         db.close();
     })
 };
+const modifyPassword=(req,res)=>{
+
+    const userInfo = req.body;
+    const userName = {name:req.session.name};
+
+    MongoClient.connect(DB_CONN_STR,(err, db)=> {
+        console.log("link ok");
+        const collection = db.collection('user');
+        const result = collection.updateOne(userName,{$set:{password:userInfo.password}});
+        req.session.userInfo.password = userInfo.password;
+        res.json(true);
+        db.close();
+    })
+}
+const modifyUserInfo = (req, res) => {
+    const userInfo = req.body;
+
+    MongoClient.connect(DB_CONN_STR,(err, db)=> {
+        const collection = db.collection('user');
+        const result = collection.updateOne({name: userInfo.name},{$set:{babyBir:userInfo.babyBir, sex: userInfo.sex}});
+        req.session.userInfo.babyBir = userInfo.babyBir;
+        req.session.userInfo.sex = userInfo.sex;
+        res.send(true);
+        db.close();
+    })
+}
 
 module.exports = {
     findOne,
@@ -110,5 +136,7 @@ module.exports = {
     deleteOne,
     updateOne,
     findUserExist,
-    saveUserInfo
+    saveUserInfo,
+    modifyUserInfo,
+    modifyPassword
 };

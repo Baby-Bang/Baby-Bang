@@ -51,12 +51,17 @@ function server() {
     app.post('/existUser', mdb.findUserExist);
 
     app.post('/userInfo',mdb.saveUserInfo);
+    app.get('/userInfo', (req,res) => {
+        res.json(req.session.userInfo);
+    });
 
     app.post('/diray-show',mdb.findDiary);
 
     app.get('/diaries', (req,res) => {
         res.json(req.session.userInfo.diaries);
     });
+    app.post('/submitPassword',mdb.modifyPassword);
+    app.put('/userInfo', mdb.modifyUserInfo)
 
     var server = app.listen(3000, function () {
         var port = server.address().port;

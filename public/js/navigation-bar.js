@@ -64,7 +64,7 @@ class LogInButton extends Component {
 
 class UserName extends Component {
     render() {
-        return <Link to="#">
+        return <Link to="/person">
             <button type="button" className="btn btn-link navbar-btn pull-right">{this.props.userName}</button>
         </Link>
     }

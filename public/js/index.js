@@ -12,6 +12,8 @@ import Sign from './sign';
 import GrowthProcess from './growth-process';
 import Editor from './editor-page';
 import DiaryHome from './diary-page';
+import PersonView from './person';
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -19,10 +21,12 @@ class App extends React.Component {
             information: {}
         }
     }
+
     buildInfo(info) {
         this.state.information = info;
         browserHistory.push('/diary-page');
     }
+
     render() {
         return <div>
             {this.props.children && React.cloneElement(this.props.children, {
@@ -44,5 +48,6 @@ render(<Router history={browserHistory}>
         <Route path="/course" component={GrowthProcess}/>
         <Route path="/editor" component={Editor}/>
         <Route path="/diary-page" component={DiaryHome}/>
+        <Route path="/person" component={PersonView}/>
     </Route>
 </Router>, document.getElementById('main'));
