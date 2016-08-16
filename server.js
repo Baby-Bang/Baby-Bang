@@ -58,6 +58,16 @@ function server() {
         res.json(req.session.userInfo.diaries);
     });
 
+    app.get('/babyBir',(req,res)=>{
+        res.json(req.session.userInfo.babyBir)
+    })
+
+    app.get('/userName',(req,res)=>{
+        res.json(req.session.userInfo.name);
+    })
+
+    app.post('/editor',mdb.insertDairyMessage);
+
     var server = app.listen(3000, function () {
         var port = server.address().port;
         console.log('listening at port %s', port);

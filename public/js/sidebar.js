@@ -10,6 +10,16 @@ module.exports = React.createClass({
             });
         });
     },
+    judgePerson(){
+        $.get('/logIn', (userName) => {
+            if (userName === '') {
+                if (confirm('还未登陆，是否登陆！'))
+                    browserHistory.push('/logIn')
+            } else {
+                browserHistory.push('#');
+            }
+        });
+    },
     judge(){
         $.get('/logIn', (userName) => {
             if (userName === '') {
@@ -27,12 +37,13 @@ module.exports = React.createClass({
         return <div className="siderbar">
             <p id="flip" className="glyphicon glyphicon-align-justify">点击我</p>
             <div className="panel">
-                <p onClick={this.linkToHome}>首页</p>
-                <p onClick={this.judge}>成长日记</p>
-                <p onClick="">育儿心得</p>
-                <p onClick="">闲置转让</p>
-                <p onClick="">爸爸圈</p>
-                <p onClick="">妈妈圈</p>
+                <p className="color" onClick={this.linkToHome}>首页</p>
+                <p className="color" onClick={this.judgePerson}>个人中心</p>
+                <p className="color" onClick={this.judge}>成长日记</p>
+                <p className="color" onClick="">育儿心得</p>
+                <p className="color" onClick="">闲置转让</p>
+                <p className="color" onClick="">爸爸圈</p>
+                <p className="color" onClick="">妈妈圈</p>
             </div>
         </div>
     }

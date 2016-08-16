@@ -93,3 +93,89 @@
     position:relative;
     top:1px;
 }
+
+
+.time{
+    position: absolute;
+    left: 220px;
+    top: 110px;
+}
+.nowtime{
+    display: inline;
+}
+.inputDay{
+    position: absolute;
+    left: 220px;
+    top: 150px;
+}
+.babyinline{
+    display: inline;
+}
+.titleInput{
+    position: absolute;
+    left: 200px;
+    top: 220px;
+}
+.addPhoto{
+    position: absolute;
+    left: 450px;
+    top: 110px;
+}
+.largefont {
+    border:30px solid #D8D1D1;
+    padding:400px 400px;
+    background:#ffb6b2;
+    width:600px;
+    border-radius:600px;
+}
+.textArea{
+    position: absolute;
+    left: 130px;
+    top: 300px;
+}
+.start{
+    position: absolute;
+    left: 350px;
+    top: 700px;
+}
+.performance{
+    display: inline;
+}
+.startcolor{
+    color: yellow;
+}
+.radio{
+    position: absolute;
+    left: 550px;
+    top: 650px;
+    display: inline;
+}
+.submit{
+    position: absolute;
+    left: 550px;
+    top: 700px;
+    -moz-box-shadow:inset 1px 20px 29px 7px #f7c5c0;
+    -webkit-box-shadow:inset 1px 20px 29px 7px #f7c5c0;
+    box-shadow:inset 1px 20px 29px 7px #f7c5c0;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fc8d83), color-stop(1, #ffb6b2));
+    background:-moz-linear-gradient(top, #fc8d83 5%, #ffb6b2 100%);
+    background:-webkit-linear-gradient(top, #fc8d83 5%, #ffb6b2 100%);
+    background:-o-linear-gradient(top, #fc8d83 5%, #ffb6b2 100%);
+    background:-ms-linear-gradient(top, #fc8d83 5%, #ffb6b2 100%);
+    background:linear-gradient(to bottom, #fc8d83 5%, #ffb6b2 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fc8d83', endColorstr='#ffb6b2',GradientType=0);
+    background-color:#fc8d83;
+    -moz-border-radius:16px;
+    -webkit-border-radius:16px;
+    border-radius:16px;
+    border:2px solid #fceeed;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:22px;
+    font-weight:bold;
+    padding:10px 35px;
+    text-decoration:none;
+    text-shadow:3px -1px 6px #fcb9b6;
+}

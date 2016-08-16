@@ -65,6 +65,20 @@ const findUserExist = (req, res) => {
     })
 };
 
+const insertDairyMessage = (req,res)=>{
+    const userInfo = req.body
+    const info = {date:userInfo.date,age:userInfo.age,title:userInfo.title,content:userInfo.content,
+        babyScore:userInfo.babyscore,parentScore:userInfo.parentscore,public:userInfo.public,likeNumber:0,
+        picture:userInfo.picture};
+console.log(info);
+    MongoClient.connect(DB_CONN_STR,(err, db)=> {
+        console.log("link ok");
+        const collection = db.collection('user');
+        const result = collection.updateOne({name:userInfo.name},{$push:{"diaries":info}});
+        res.json(result);
+        db.close();
+    })
+};
 
 const insertOne = function (req,res) {
     const userInfo = req.body;
@@ -110,5 +124,6 @@ module.exports = {
     deleteOne,
     updateOne,
     findUserExist,
-    saveUserInfo
+    saveUserInfo,
+    insertDairyMessage
 };

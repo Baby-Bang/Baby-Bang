@@ -5,6 +5,21 @@ import Sidebar from './sidebar';
 import Growtheditor from './growth-Editor'
 
 export default class Editor extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            babyBir: "",
+            userName:""
+        }
+    }
+    componentWillMount() {
+        $.get('/babyBir', (babyBir)=> {
+            this.setState({babyBir});
+        }, 'json');
+        $.get('/userName',(userName)=>{
+            this.setState({userName});
+        },'json');
+    }
     render() {
         return <div>
             <NavigationBar name="编 辑 baby 成 长 历 程"/>
@@ -14,7 +29,7 @@ export default class Editor extends React.Component {
                         <Sidebar/>
                     </div>
                     <div className="col-md-8">
-                        <Growtheditor/>
+                        <Growtheditor babyBir={this.state.babyBir} userName={this.state.userName}/>
                     </div>
                 </div>
             </div>
