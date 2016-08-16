@@ -140,7 +140,7 @@ class RightLists extends React.Component {
                         })}
                         <p className="timeColor threeInline">父母表现：</p>
                         {[0, 0, 0, 0, 0].map((star, index) => {
-                            if (index < diary.parent) {
+                            if (index < diary.parentScore) {
                                 return <div key={index} className="threeInline">
                                     <span className="glyphicon glyphicon-star starColor"></span>
                                 </div>
