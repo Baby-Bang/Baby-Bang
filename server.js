@@ -55,13 +55,25 @@ function server() {
         res.json(req.session.userInfo);
     });
 
-    app.post('/diray-show',mdb.findDiary);
+    app.get('/diray-show',mdb.findDiary);
+
+    app.post('/updateLike', mdb.addLikeNum);
 
     app.get('/diaries', (req,res) => {
         res.json(req.session.userInfo.diaries);
     });
     app.post('/submitPassword',mdb.modifyPassword);
     app.put('/userInfo', mdb.modifyUserInfo)
+
+    app.get('/babyBir',(req,res)=>{
+        res.json(req.session.userInfo.babyBir)
+    })
+
+    app.get('/userName',(req,res)=>{
+        res.json(req.session.userInfo.name);
+    })
+
+    app.post('/editor',mdb.insertDairyMessage);
 
     var server = app.listen(3000, function () {
         var port = server.address().port;

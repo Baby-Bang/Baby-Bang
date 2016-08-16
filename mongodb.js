@@ -31,7 +31,7 @@ const findDiary = (req, res) => {
         });
         db.close();
     })
-}
+};
 
 const saveUserInfo=(req,res)=>{
     const userInfo=req.body;
@@ -65,6 +65,20 @@ const findUserExist = (req, res) => {
     })
 };
 
+const insertDairyMessage = (req,res)=>{
+    const userInfo = req.body
+    const info = {date:userInfo.date,age:userInfo.age,title:userInfo.title,content:userInfo.content,
+        babyScore:userInfo.babyscore,parentScore:userInfo.parentscore,public:userInfo.public,likeNumber:0,
+        picture:userInfo.picture};
+console.log(info);
+    MongoClient.connect(DB_CONN_STR,(err, db)=> {
+        console.log("link ok");
+        const collection = db.collection('user');
+        const result = collection.updateOne({name:userInfo.name},{$push:{"diaries":info}});
+        res.json(result);
+        db.close();
+    })
+};
 
 const insertOne = function (req,res) {
     const userInfo = req.body;
@@ -129,6 +143,18 @@ const modifyUserInfo = (req, res) => {
     })
 }
 
+const addLikeNum = function (req, res) {
+    const userInfo = req.body.info;
+    // console.log(userInfo);
+    MongoClient.connect(DB_CONN_STR, (err, db) => {
+        const collection = db.collection('user');
+        const result = collection.updateOne({"name": userInfo.name, "diaries.title": userInfo.title},
+            {$set:{"diaries.$.likeNumber": userInfo.likeNumber}});
+        res.send(result);
+        db.close();
+    })
+};
+
 module.exports = {
     findOne,
     findDiary,
@@ -138,5 +164,7 @@ module.exports = {
     findUserExist,
     saveUserInfo,
     modifyUserInfo,
-    modifyPassword
+    modifyPassword,
+    insertDairyMessage,
+    addLikeNum
 };

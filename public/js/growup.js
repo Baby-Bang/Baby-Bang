@@ -10,7 +10,7 @@ export default class Growup extends Component{
         return <div>
             <div  className="growup-button1">
                 <Link to="/editor">
-                    <button  className="growup-button">添加</button><br/>
+                    <button  className="growup-button">添  加</button><br/>
                 </Link>
             </div>
             <div className="grow-button2">

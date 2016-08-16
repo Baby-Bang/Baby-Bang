@@ -21,7 +21,7 @@ p#flip{
 
 div.panel
 {
-    height:300px;
+    height:400px;
     display:none;
 }
 
@@ -29,10 +29,11 @@ a{
     color: #ef4136;
 }
 
-p{
+.color{
     color: #ef4136;
 }
-p:hover{
+
+.color:hover {
     color: #23527c;
     text-decoration: underline;
 }

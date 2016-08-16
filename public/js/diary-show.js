@@ -10,14 +10,14 @@ export default class DiaryShow extends Component {
     }
 
     componentDidMount() {
-        $.post('/diray-show', (userinfo)=> {
+        $.get('/diray-show', (userinfo)=> {
             const texts = this.state.texts;
             for (var i of userinfo) {
                 for (const j of i.diaries) {
-                    texts.push({likeNumber: j.likeNumber, title: j.title, content: j.content});
+                    texts.push({likeNumber: j.likeNumber, title: j.title, content: j.content, name: i.name});
                 }
             }
-            this.setState({texts},() =>{
+            this.setState({texts}, () => {
             });
         })
 
@@ -41,7 +41,7 @@ const ShowTitle = React.createClass({
 
         for (i = 1; i < text.length; i++) {
             temp = text[i];
-            for (j = i; j > 0 && text[j - 1].likeNumber < temp.likeNumber; j--) {
+            for (j = i; j > 0 && text[j - 1].likeNumber <temp.likeNumber; j--) {
                 text[j] = text[j - 1];
             }
             text[j] = temp;
@@ -52,21 +52,32 @@ const ShowTitle = React.createClass({
     onAdd(ele) {
         this.props.buildInfo(ele);
     },
+    add: function (ele) {
+        const info = ele;
+        info.likeNumber++;
+        $.post('/updateLike', {info},(data)=> {});
+        this.setState(ele);
+    },
+
     render: function () {
+
         const array = this.sort(this.props.texts).slice(0, 4);
         const diary = array.map((ele, index) => {
             return <div key={index}>
 
                 <li className="list-group-item">
                     <div className="row">
-                        <div className="col-md-11">
+                        <div className="col-md-10">
                             <Link to="/diary-page">
                                 <span className="glyphicon glyphicon-triangle-right"></span>
                                 <button id="diaryTitle" onClick={this.onAdd.bind(this, ele)}>{ele.title}</button>
                             </Link>
                         </div>
-                        <div className="col-md-1">
-                            <span id="zan" className="glyphicon glyphicon-thumbs-up">{ele.likeNumber}</span>
+                        <div className="col-md-2">
+                            <p className="glyphicon glyphicon-heart heartColor"
+                               onClick={this.add.bind(this, ele)}/>
+                            <span >  {ele.likeNumber}</span>
+
                         </div>
 
                     </div>

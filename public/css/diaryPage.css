@@ -3,16 +3,32 @@
     border: transparent;
 }
 #titleDiv{
+    color: #0b97c4;
     margin-left: 15%;
     width: 70%;
-    height: 50px;
+    height: auto;
     margin-top: 30px;
+    padding-left: 20px;
+    padding-top: 5px;
     background-color: white;
+    border-bottom: 1px #f7c5c0 solid;
 }
 #contentDiv{
-    margin-top: 15px;
+    font-size: larger;
     margin-left: 15%;
+    padding-left: 20px;
+    padding-top: 10px;
     width: 70%;
     height: 600px;
     background-color: white;
+}
+.titleLike{
+    display: inline;
+}
+#likeButton{
+    background: transparent;
+    border: transparent;
+}
+#title{
+    padding-top: 10px;
 }
