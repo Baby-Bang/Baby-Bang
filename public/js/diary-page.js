@@ -54,7 +54,7 @@ const Diary = React.createClass({
             this.state.openPage = true;
             info.likeNumber--;
         }
-        $.post('/updateLike', {info}, (data) => {
+        $.put('/updateLike', {info}, (data) => {
             console.log('success');
         });
         this.props.addLikeNum(info);
