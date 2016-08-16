@@ -55,9 +55,7 @@ const ShowTitle = React.createClass({
     add: function (ele) {
         const info = ele;
         info.likeNumber++;
-        $.post('/updateLike', {info},(data)=> {
-            console.log("success");
-        });
+        $.post('/updateLike', {info},(data)=> {});
         this.setState(ele);
     },
 
