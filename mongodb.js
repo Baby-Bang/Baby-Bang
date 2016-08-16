@@ -31,7 +31,7 @@ const findDiary = (req, res) => {
         });
         db.close();
     })
-}
+};
 
 const saveUserInfo=(req,res)=>{
     const userInfo=req.body;
@@ -107,11 +107,12 @@ const addLikeNum = function (req, res) {
     const userInfo = req.body.info;
     MongoClient.connect(DB_CONN_STR, (err, db) => {
         const collection = db.collection('user');
-        collection.updateOne({"name": userInfo.name, "diaries.title": userInfo.title},
+        const result = collection.updateOne({"name": userInfo.name, "diaries.title": userInfo.title},
             {$set:{"diaries.$.likeNumber": userInfo.likeNumber}});
+        res.send(result);
         db.close();
     })
-}
+};
 
 module.exports = {
     findOne,
