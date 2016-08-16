@@ -83,7 +83,7 @@ export default class GrowthProcess extends Component {
     }
 
     render() {
-        return <div>
+        return <div className="magBackColor2">
             <NavigationBar name="成 长 历 程" userName={this.state.userName} onChangLogout={this.changLogout.bind(this)}/>
             <div className="returnFixed">
                 <Link to="/growUp">

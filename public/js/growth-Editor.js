@@ -241,16 +241,6 @@ class Submit extends Component {
     }
 
     saveMessage() {
-        console.log("title：" + document.getElementById('titlename').value);
-        console.log("内容：" + document.getElementById('dairytext').value);
-        console.log("age:" + document.getElementById('babydays').innerHTML);
-        console.log("nowtime:" + document.getElementById('getnowtime').innerHTML);
-        console.log("babyscore:" + document.getElementById('babyscore').innerHTML);
-        console.log("parentscore:" + document.getElementById('parentscore').innerHTML);
-        console.log("publicdairy:" + this.state.publicdairy);
-        console.log("likeNumber:" + 0);
-        console.log("picture:" + document.getElementById('imageurl').innerHTML);
-
         const date = document.getElementById('getnowtime').innerHTML;
         const age = document.getElementById('babydays').innerHTML;
         const title = document.getElementById('titlename').value;
@@ -264,9 +254,8 @@ class Submit extends Component {
 
         $.post('/editor', {name: this.props.userName, date: date, age: age, title: title,content:content,
                 babyscore:babyscore,parentscore:parentscore,public:publics,likeNumber:likeNumber,picture:picture},(data)=>{
-                    console.log("success");
         });
-        browserHistory.push('/growUp');
+        browserHistory.push('/course');
     }
 
     render() {

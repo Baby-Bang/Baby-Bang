@@ -16,9 +16,7 @@ export default class GrowupHome extends Component {
 
     componentWillMount() {
         $.get('/session', (userName) => {
-            this.setState({userName}, () => {
-                console.log(this.state.userName)
-            });
+            this.setState({userName});
         });
     }
 
@@ -28,7 +26,6 @@ export default class GrowupHome extends Component {
     }
 
     render() {
-        console.log(this.state.userName + 'g1')
         return <div>
             <NavigationBar name="成 长 日 记" userName={this.state.userName} onChangLogout={this.changLogout.bind(this)}/>
             <div className="container-fluid">

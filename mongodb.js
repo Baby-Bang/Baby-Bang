@@ -70,11 +70,10 @@ const insertDairyMessage = (req,res)=>{
     const info = {date:userInfo.date,age:userInfo.age,title:userInfo.title,content:userInfo.content,
         babyScore:userInfo.babyscore,parentScore:userInfo.parentscore,public:userInfo.public,likeNumber:0,
         picture:userInfo.picture};
-console.log(info);
     MongoClient.connect(DB_CONN_STR,(err, db)=> {
-        console.log("link ok");
         const collection = db.collection('user');
         const result = collection.updateOne({name:userInfo.name},{$push:{"diaries":info}});
+        req.session.userInfo.diaries.push(info);
         res.json(result);
         db.close();
     })
@@ -84,7 +83,6 @@ const insertOne = function (req,res) {
     const userInfo = req.body;
 
     MongoClient.connect(DB_CONN_STR,(err, db)=> {
-        console.log("link ok");
         const collection = db.collection('user');
         const result = collection.insertOne(userInfo);
         res.json(result);
@@ -96,7 +94,6 @@ const deleteOne = function (req,res) {
     const userName = req.body;
 
     MongoClient.connect(DB_CONN_STR,(err, db)=> {
-        console.log("link ok");
         const collection = db.collection('user');
         const result = collection.removeOne(userName);
         res.json(result);
@@ -109,7 +106,6 @@ const updateOne = function (req,res) {
     const oldInfo = {user:userInfo.user,pwd:userInfo.pwd};
 
     MongoClient.connect(DB_CONN_STR,(err, db)=> {
-        console.log("link ok");
         const collection = db.collection('user');
         const result = collection.updateOne(oldInfo,{$set:{pwd:userInfo.newPwd}});
         res.json(result);
@@ -122,7 +118,6 @@ const modifyPassword=(req,res)=>{
     const userName = {name:req.session.name};
 
     MongoClient.connect(DB_CONN_STR,(err, db)=> {
-        console.log("link ok");
         const collection = db.collection('user');
         const result = collection.updateOne(userName,{$set:{password:userInfo.password}});
         req.session.userInfo.password = userInfo.password;
@@ -145,7 +140,6 @@ const modifyUserInfo = (req, res) => {
 
 const addLikeNum = function (req, res) {
     const userInfo = req.body.info;
-    // console.log(userInfo);
     MongoClient.connect(DB_CONN_STR, (err, db) => {
         const collection = db.collection('user');
         const result = collection.updateOne({"name": userInfo.name, "diaries.title": userInfo.title},

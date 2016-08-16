@@ -14,7 +14,6 @@ export default class DiaryHome extends React.Component {
     componentWillMount() {
         $.get('/session', (userName) => {
             this.setState({userName}, () => {
-                console.log(this.state.userName)
             });
         });
     }
@@ -54,9 +53,7 @@ const Diary = React.createClass({
             this.state.openPage = true;
             info.likeNumber--;
         }
-        $.put('/updateLike', {info}, (data) => {
-            console.log('success');
-        });
+        $.put('/updateLike', {info});
         this.props.addLikeNum(info);
     },
     render: function () {

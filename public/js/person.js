@@ -51,7 +51,6 @@ class Message extends Component {
             oldPassword: '',
             isDone: false
         };
-        console.log(this.props.userInfo);
     }
 
     componentWillReceiveProps(nextProps) {
