@@ -2,12 +2,14 @@
     position: absolute;
     left: 450px;
     top: 600px;
+    width:100px;
 }
 
 .grow-button2{
     position: absolute;
     left: 600px;
     top: 600px;
+    width:100px;
 }
 
 .grow-button {

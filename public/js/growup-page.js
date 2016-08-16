@@ -17,16 +17,13 @@ export default class GrowupHome extends Component {
     componentWillMount() {
         $.get('/session', (userName) => {
             this.setState({userName}, () => {
-                console.log(this.state.userName + 'g')
+                console.log(this.state.userName)
             });
         });
-        console.log(111)
     }
 
     changLogout() {
-        $.post('/logout',(userName) => {
-            this.setState({userName});
-        });
+        $.post('/logout');
         browserHistory.push('/');
     }
 

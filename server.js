@@ -54,6 +54,8 @@ function server() {
 
     app.post('/diray-show',mdb.findDiary);
 
+    app.post('/updateLike', mdb.addLikeNum);
+
     app.get('/diaries', (req,res) => {
         res.json(req.session.userInfo.diaries);
     });

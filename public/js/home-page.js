@@ -6,7 +6,7 @@ import Sidebar from './sidebar';
 import {browserHistory} from 'react-router';
 import DiaryShow from './diary-show'
 
-export default class Home extends React.Component {
+export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -39,8 +39,8 @@ export default class Home extends React.Component {
                         <Carousel/>
                     </div>
                 </div>
-                <div >
-                    <DiaryShow/>
+                <div>
+                    <DiaryShow buildInfo={this.props.buildInfo}/>
                 </div>
             </div>
         </div>

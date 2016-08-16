@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {browserHistory} from 'react-router';
 
 export default class Growtheditor extends Component {
     constructor(props) {
@@ -265,6 +266,7 @@ class Submit extends Component {
                 babyscore:babyscore,parentscore:parentscore,public:publics,likeNumber:likeNumber,picture:picture},(data)=>{
                     console.log("success");
         });
+        browserHistory.push('/growUp');
     }
 
     render() {

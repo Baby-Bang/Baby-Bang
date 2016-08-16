@@ -13,9 +13,27 @@ import GrowthProcess from './growth-process';
 import Editor from './editor-page';
 import DiaryHome from './diary-page';
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            information: {}
+        }
+    }
+    buildInfo(info) {
+        this.state.information = info;
+        browserHistory.push('/diary-page');
+    }
+    addLikeNum(info) {
+        this.state.information = info;
+        this.setState({information: this.state.information});
+    }
     render() {
         return <div>
-            {this.props.children}
+            {this.props.children && React.cloneElement(this.props.children, {
+                information: this.state.information,
+                buildInfo: this.buildInfo.bind(this),
+                addLikeNum: this.addLikeNum.bind(this)
+            })}
         </div>
     }
 }
