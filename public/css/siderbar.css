@@ -32,7 +32,8 @@ a{
 .color{
     color: #ef4136;
 }
-.color:hover{
+
+.color:hover {
     color: #23527c;
     text-decoration: underline;
 }

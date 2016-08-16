@@ -119,6 +119,7 @@ const updateOne = function (req,res) {
 
 const addLikeNum = function (req, res) {
     const userInfo = req.body.info;
+    // console.log(userInfo);
     MongoClient.connect(DB_CONN_STR, (err, db) => {
         const collection = db.collection('user');
         const result = collection.updateOne({"name": userInfo.name, "diaries.title": userInfo.title},

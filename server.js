@@ -52,7 +52,7 @@ function server() {
 
     app.post('/userInfo',mdb.saveUserInfo);
 
-    app.post('/diray-show',mdb.findDiary);
+    app.get('/diray-show',mdb.findDiary);
 
     app.post('/updateLike', mdb.addLikeNum);
 
