@@ -68,7 +68,7 @@ export default class GrowthProcess extends Component {
 
                 return {year: y, monthDay: monthDay};
             });
-            this.setState({year, month, day, resultDate});
+            this.state.resultDate = resultDate;
 
             this.setState({diaries});
         }, 'json');

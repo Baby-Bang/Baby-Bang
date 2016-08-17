@@ -12,9 +12,11 @@ export default class DiaryShow extends Component {
     componentDidMount() {
         $.get('/diray-show', (userinfo)=> {
             const texts = this.state.texts;
-            for (var i of userinfo) {
+            for (const i of userinfo) {
                 for (const j of i.diaries) {
-                    texts.push({likeNumber: j.likeNumber, title: j.title, content: j.content, name: i.name});
+                    if(j.public === 'true'){
+                        texts.push({likeNumber: j.likeNumber, title: j.title, content: j.content, name: i.name});
+                    }
                 }
             }
             this.setState({texts}, () => {
@@ -25,7 +27,7 @@ export default class DiaryShow extends Component {
 
     render() {
         return <div className="row">
-            <div id="diary-show-table" className="col-md-8 col-md-offset-2 diaryShowMag">
+            <div id="" className="col-md-11 diaryShowMag">
                 <p id="diary-show-font">精彩日记</p>
                 <ShowTitle texts={this.state.texts} buildInfo={this.props.buildInfo}/>
             </div>

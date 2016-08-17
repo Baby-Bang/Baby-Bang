@@ -22,8 +22,9 @@ export default class PersonView extends React.Component {
     }
 
     changLogout() {
-        $.post('/logout');
-        browserHistory.push('/');
+        $.post('/logout', (data) => {
+            browserHistory.push('/');
+        });
     }
 
     render() {

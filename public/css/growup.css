@@ -1,15 +1,13 @@
 .growup-button1{
     position: absolute;
-    left: 450px;
+    left: 420px;
     top: 600px;
-    width:100px;
 }
 
 .grow-button2{
     position: absolute;
-    left: 600px;
+    left: 750px;
     top: 600px;
-    width:100px;
 }
 
 .grow-button {
@@ -137,8 +135,8 @@
 }
 .start{
     position: absolute;
-    left: 350px;
-    top: 700px;
+    left: 250px;
+    top: 660px;
 }
 .performance{
     display: inline;
@@ -146,16 +144,22 @@
 .startcolor{
     color: yellow;
 }
-.radio{
+.miradio{
     position: absolute;
     left: 550px;
     top: 650px;
     display: inline;
 }
-.submit{
+.publicRadio{
     position: absolute;
     left: 550px;
-    top: 700px;
+    top: 680px;
+    display: inline;
+}
+.submit{
+    position: absolute;
+    left: 385px;
+    top: 730px;
     -moz-box-shadow:inset 1px 20px 29px 7px #f7c5c0;
     -webkit-box-shadow:inset 1px 20px 29px 7px #f7c5c0;
     box-shadow:inset 1px 20px 29px 7px #f7c5c0;

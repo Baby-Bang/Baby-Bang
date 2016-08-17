@@ -23,8 +23,8 @@ export default class Home extends Component {
     changLogout() {
         $.post('/logout',(userName) => {
             this.setState({userName});
+            browserHistory.push('/');
         });
-        browserHistory.push('/');
     }
 
     render() {
@@ -37,10 +37,8 @@ export default class Home extends Component {
                     </div>
                     <div className="col-md-8">
                         <Carousel/>
+                        <DiaryShow buildInfo={this.props.buildInfo}/>
                     </div>
-                </div>
-                <div>
-                    <DiaryShow buildInfo={this.props.buildInfo}/>
                 </div>
             </div>
         </div>
