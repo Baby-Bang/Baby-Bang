@@ -133,7 +133,7 @@ class Text extends Component {
     render() {
         return <div className="textArea">
             <h4>内容</h4>
-            <textarea cols="100" rows="15" id="dairytext"></textarea>
+            <textarea cols="75" rows="15" id="dairytext"></textarea>
         </div>
     }
 }
@@ -209,12 +209,10 @@ class Start extends Component {
                 {this.state.parentstar.reduce((a, b) => a + b)}
             </div>
             <div>
-                {"baby 表现"}
-                <div id="babyStart">{babystar}</div>
+                {"baby 表现 "}{babystar}
             </div>
             <div>
-                {"父母 表现"}
-                <div id="parentstar">{parentstar}</div>
+                {"父母 表现"}{parentstar}
             </div>
         </div>
     }
@@ -260,14 +258,12 @@ class Submit extends Component {
 
     render() {
         return <div>
-            <div className="radio">
-                <div>
+                <div className="miradio">
                     私密:<input type="radio" name="radio" onClick={this.changeClickState.bind(this)}></input>
                 </div>
-                <div>
+                <div className="publicRadio">
                     公开:<input type="radio" name="radio" onClick={this.changeClick.bind(this)}></input>
                 </div>
-            </div>
             <button type="submit" className="submit" onClick={this.saveMessage.bind(this)}>保存</button>
         </div>
     }
