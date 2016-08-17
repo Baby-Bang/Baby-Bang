@@ -23,8 +23,8 @@ export default class Home extends Component {
     changLogout() {
         $.post('/logout',(userName) => {
             this.setState({userName});
+            browserHistory.push('/');
         });
-        browserHistory.push('/');
     }
 
     render() {

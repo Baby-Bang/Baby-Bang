@@ -252,8 +252,8 @@ class Submit extends Component {
 
         $.post('/editor', {name: this.props.userName, date: date, age: age, title: title,content:content,
                 babyscore:babyscore,parentscore:parentscore,public:publics,likeNumber:likeNumber,picture:picture},(data)=>{
+            browserHistory.push('/course');
         });
-        browserHistory.push('/course');
     }
 
     render() {

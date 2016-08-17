@@ -26,8 +26,8 @@ export default class Editor extends React.Component {
     changLogout() {
         $.post('/logout', (userName) => {
             this.setState({userName});
+            browserHistory.push('/');
         });
-        browserHistory.push('/');
     }
 
     render() {

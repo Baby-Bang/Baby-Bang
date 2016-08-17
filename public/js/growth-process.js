@@ -14,7 +14,6 @@ export default class GrowthProcess extends Component {
     }
 
     componentWillMount() {
-        console.log(123);
         $.get('/diaries', (diaries) => {
             diaries.reverse();
             const date = diaries.map(diary => {

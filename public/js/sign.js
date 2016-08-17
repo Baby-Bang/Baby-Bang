@@ -51,9 +51,9 @@ export default class Sign extends React.Component {
             confirmPassword === '' || babyBir === '' || sex === undefined) {
             alert('您所输入的注册内容不完整！');
         } else {
-            $.post('/userInfo', {name: userName, password: password, babyBir: babyBir, sex: sex});
-            browserHistory.push('/');
-
+            $.post('/userInfo', {name: userName, password: password, babyBir: babyBir, sex: sex}, (data) => {
+                browserHistory.push('/');
+            });
         }
     }
 
