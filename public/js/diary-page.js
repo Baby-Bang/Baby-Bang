@@ -11,19 +11,23 @@ export default class DiaryHome extends React.Component {
             userName: ''
         }
     }
+
     componentWillMount() {
         $.get('/session', (userName) => {
             this.setState({userName}, () => {
             });
         });
     }
+
     changLogout() {
         $.post('/logout');
         browserHistory.push('/');
     }
+
     render() {
-        return <div className="container-fluid">
-                <NavigationBar name="精 彩 日 记" userName={this.state.userName} onChangLogout={this.changLogout.bind(this)}/>
+        return <div>
+            <NavigationBar name="精 彩 日 记" userName={this.state.userName} onChangLogout={this.changLogout.bind(this)}/>
+            <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-1">
                         <Sidebar/>
@@ -33,6 +37,7 @@ export default class DiaryHome extends React.Component {
                     </div>
                 </div>
             </div>
+        </div>
 
     }
 }
@@ -53,7 +58,7 @@ const Diary = React.createClass({
             this.state.openPage = true;
             info.likeNumber--;
         }
-        $.put('/updateLike', {info});
+        $.post('/updateLike', {info});
         this.props.addLikeNum(info);
     },
     render: function () {
@@ -66,7 +71,7 @@ const Diary = React.createClass({
                     <button id="likeButton" onClick={this.likeNumber}>
                         <img src="images/like.png" width='32px' height='32px'/>
                         <div>
-                            {this.state.openPage?"":"已赞"}
+                            {this.state.openPage ? "" : "已赞"}
                         </div>
                         {this.props.information.likeNumber}
                     </button>

@@ -10,7 +10,7 @@ function server() {
     const app = new express();
     const session = require('express-session');
 
-    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.urlencoded({extended: true}));
 
     app.use(express.static('./views'));
 
@@ -23,6 +23,15 @@ function server() {
     }));
 
     app.get('/logIn', (req, res) => {
+        if (req.session.name) {
+            res.send(req.session.name);
+        } else {
+            req.session.name = '';
+            res.send(req.session.name)
+        }
+    });
+
+    app.get('/personName', (req, res) => {
         if (req.session.name) {
             res.send(req.session.name);
         } else {
@@ -50,30 +59,30 @@ function server() {
 
     app.post('/existUser', mdb.findUserExist);
 
-    app.post('/userInfo',mdb.saveUserInfo);
-    app.get('/userInfo', (req,res) => {
+    app.post('/userInfo', mdb.saveUserInfo);
+    app.get('/userInfo', (req, res) => {
         res.json(req.session.userInfo);
     });
 
-    app.get('/diray-show',mdb.findDiary);
+    app.get('/diray-show', mdb.findDiary);
 
     app.post('/updateLike', mdb.addLikeNum);
 
-    app.get('/diaries', (req,res) => {
+    app.get('/diaries', (req, res) => {
         res.json(req.session.userInfo.diaries);
     });
-    app.post('/submitPassword',mdb.modifyPassword);
+    app.post('/submitPassword', mdb.modifyPassword);
     app.put('/userInfo', mdb.modifyUserInfo)
 
-    app.get('/babyBir',(req,res)=>{
+    app.get('/babyBir', (req, res)=> {
         res.json(req.session.userInfo.babyBir)
     })
 
-    app.get('/userName',(req,res)=>{
+    app.get('/userName', (req, res)=> {
         res.json(req.session.userInfo.name);
     })
 
-    app.post('/editor',mdb.insertDairyMessage);
+    app.post('/editor', mdb.insertDairyMessage);
 
     var server = app.listen(3000, function () {
         var port = server.address().port;

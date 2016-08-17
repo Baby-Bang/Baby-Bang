@@ -13,18 +13,16 @@ export default class PersonView extends React.Component {
     }
 
     componentDidMount() {
+        $.get('/personName', (userName) => {
+            this.setState({userName});
+        });
         $.get('/userInfo', (userInfo) => {
             this.setState({userInfo});
         }, 'json');
-        $.get('/logIn', (userName) => {
-            this.setState({userName});
-        });
     }
 
     changLogout() {
-        $.post('/logout', (userName) => {
-            this.setState({userName});
-        });
+        $.post('/logout');
         browserHistory.push('/');
     }
 
