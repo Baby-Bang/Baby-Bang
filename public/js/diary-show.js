@@ -12,9 +12,11 @@ export default class DiaryShow extends Component {
     componentDidMount() {
         $.get('/diray-show', (userinfo)=> {
             const texts = this.state.texts;
-            for (var i of userinfo) {
+            for (const i of userinfo) {
                 for (const j of i.diaries) {
-                    texts.push({likeNumber: j.likeNumber, title: j.title, content: j.content, name: i.name});
+                    if(j.public === 'true'){
+                        texts.push({likeNumber: j.likeNumber, title: j.title, content: j.content, name: i.name});
+                    }
                 }
             }
             this.setState({texts}, () => {
