@@ -37,10 +37,8 @@ export default class Home extends Component {
                     </div>
                     <div className="col-md-8">
                         <Carousel/>
+                        <DiaryShow buildInfo={this.props.buildInfo}/>
                     </div>
-                </div>
-                <div>
-                    <DiaryShow buildInfo={this.props.buildInfo}/>
                 </div>
             </div>
         </div>

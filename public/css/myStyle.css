@@ -43,8 +43,8 @@
 }
 
 #myCarousel{
-    width: 900px;
-    height: 400px;
+    width: 90%;
+    height: auto;
     margin: 50px auto;
 }
 .carousel-caption{
@@ -324,5 +324,5 @@
 }
 
 .diaryShowMag{
-    margin-left: 295px;
+    padding-left: 70px;
 }

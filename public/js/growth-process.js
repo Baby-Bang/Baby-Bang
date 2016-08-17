@@ -14,6 +14,7 @@ export default class GrowthProcess extends Component {
     }
 
     componentWillMount() {
+        console.log(123);
         $.get('/diaries', (diaries) => {
             diaries.reverse();
             const date = diaries.map(diary => {
@@ -68,7 +69,7 @@ export default class GrowthProcess extends Component {
 
                 return {year: y, monthDay: monthDay};
             });
-            this.setState({year, month, day, resultDate});
+            this.state.resultDate = resultDate;
 
             this.setState({diaries});
         }, 'json');

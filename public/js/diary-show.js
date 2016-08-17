@@ -25,7 +25,7 @@ export default class DiaryShow extends Component {
 
     render() {
         return <div className="row">
-            <div id="diary-show-table" className="col-md-8 col-md-offset-2 diaryShowMag">
+            <div id="" className="col-md-11 diaryShowMag">
                 <p id="diary-show-font">精彩日记</p>
                 <ShowTitle texts={this.state.texts} buildInfo={this.props.buildInfo}/>
             </div>
