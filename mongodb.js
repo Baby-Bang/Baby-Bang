@@ -151,13 +151,14 @@ const addLikeNum = function (req, res) {
         const collection = db.collection('user');
         const result = collection.updateOne({"name": userInfo.name, "diaries.title": userInfo.title},
             {$set: {"diaries.$.likeNumber": userInfo.likeNumber}});
-        for (let j = 0; j < req.session.userInfo.diaries.length; j++) {
-            if (req.session.userInfo.name === userInfo.name && req.session.userInfo.diaries[j].title === userInfo.title) {
-                req.session.userInfo.diaries[j].likeNumber = userInfo.likeNumber;
-                break;
+        if(req.session.userInfo){
+            for (let j = 0; j < req.session.userInfo.diaries.length; j++) {
+                if (req.session.userInfo.name === userInfo.name && req.session.userInfo.diaries[j].title === userInfo.title) {
+                    req.session.userInfo.diaries[j].likeNumber = userInfo.likeNumber;
+                    break;
+                }
             }
         }
-
         res.send(result);
         db.close();
     })
