@@ -2,6 +2,15 @@
     background: transparent;
     border: transparent;
 }
+#likeNumber{
+    display:inline-block;
+    width:30px;
+    height:30px;
+    text-align:center;
+    line-height:50px;
+    font-size: 16px;
+
+}
 #titleDiv{
     color: #0b97c4;
     margin-left: 15%;

@@ -73,9 +73,10 @@ const Diary = React.createClass({
                         <div>
                             {this.state.openPage ? "" : "已赞"}
                         </div>
-                        {this.props.information.likeNumber}
+
                     </button>
                 </div>
+                <span id="likeNumber">{this.props.information.likeNumber}</span>
             </div>
             <div id="contentDiv">
                 <span>{this.props.information.content}</span>
